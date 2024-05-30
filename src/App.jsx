@@ -27,6 +27,8 @@ function App() {
   const swiperRef = useRef(null);
   const [countPage, setCountPage] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
+  const [showStackProject, setshowStackProject] = useState(false);
+
 
   const handleCaseClick = () => {
     changePage(swiperRef.current, 'next', setCountPage);
@@ -85,16 +87,21 @@ function App() {
           <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
           <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
         </div></SwiperSlide>
-        <SwiperSlide><div className={cl.contrainer_center}>
+        <SwiperSlide><div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
           <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Сайт предприятия</div>
-          <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}><button onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}>View Project <img src={iconButton} alt="" /></button> </div>
-          <div className={cl.button_viewProject_block}>
-            <div className={cl.button_viewProject_point}>HTML</div>
-            <div className={cl.button_viewProject_point}>SCSS</div>
-            <div className={cl.button_viewProject_point}>PHP</div>
-            <div className={cl.button_viewProject_point}>Mysql</div>
-            <div className={cl.button_viewProject_point}>JS</div>
+          <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
+            <button
+              onMouseEnter={() => setshowStackProject(true)}
+              onMouseLeave={() => setshowStackProject(false)}
+            >View Project <img src={iconButton} alt="" /></button> </div>
+          <div className={showStackProject ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
+
+              <div className={cl.button_viewProject_point}>HTML</div>
+              <div className={cl.button_viewProject_point}>SCSS</div>
+              <div className={cl.button_viewProject_point}>PHP</div>
+              <div className={cl.button_viewProject_point}>Mysql</div>
+              <div className={cl.button_viewProject_point}>JS</div>
+
           </div>
         </div></SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
