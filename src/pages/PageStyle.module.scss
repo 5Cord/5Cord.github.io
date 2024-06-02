@@ -12,7 +12,7 @@ html {
 .container {
     position: relative;
     z-index: 2;
-    padding: 192px 309px;
+    padding: 192px 309px 100px 309px;
 }
 
 .container h1 {
@@ -73,4 +73,17 @@ html {
     font-size: 25px;
     font-weight: 400;
     text-align: justify;
+}
+
+.gallery {
+    margin-top: $indent100;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 70%;
 }

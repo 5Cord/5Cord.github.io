@@ -2,6 +2,9 @@ import React from 'react'
 import Logo from '../image/Belzan.png';
 import Preview from '../image/Primavera.png';
 import MyFace2 from '../image/MyFace2.png';
+import Gallery1 from '../image/Gallery.png';
+import Gallery2 from '../image/Gallery2.png';
+import Gallery3 from '../image/Gallery3.png';
 import cl from './PageStyle.module.scss';
 function Page() {
     return (
@@ -28,6 +31,11 @@ function Page() {
                 <div className={cl.approach_myface}><img src={MyFace2} alt="" /></div>
                 <div className={cl.approach_text}>Mountaire Farms turned to Lounge Lizard to design and build a new website and brand communication strategy that resonated with specific use case personas, and positioned the company with integrity and transparency.
                     Lounge Lizard developed the messaging strategies and visual design and developed the website with modern responsive programming techniques.</div>
+            </div>
+            <div className={cl.gallery}>
+                <img src={Gallery1} alt="" />
+                {/* <img src={Gallery2} alt="" />
+                <img src={Gallery3} alt="" /> */}
             </div>
         </div>
     )
