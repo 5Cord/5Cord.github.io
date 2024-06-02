@@ -25,12 +25,10 @@ function Layout() {
     return (
         <>
             <header>
-            <MainMenu show={showMenu} />
-                <Link to="/test">1</Link>
+                <MainMenu show={showMenu} />
                 <div className={cl.header}>
                     <div className={cl.header_logo}>
                         <img src={MyFace} className={cl.header_logo_img} alt="MyFace" />
-
                         <div className={cl.header_logo_text}>VD</div>
                     </div>
                     <div className={cl.header_menu} onClick={handleMenu}>

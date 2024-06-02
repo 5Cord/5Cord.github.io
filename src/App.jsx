@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Star from './image/Star.svg';
 import RingUp from './image/RingUp.svg';
 import RingDown from './image/RingDown.svg';
-import { Test } from './pages/Test';
+import { Page } from './pages/Page';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
@@ -22,7 +22,7 @@ function App() {
         <Route>
           <Route path='/' element={<Layout />}>
             <Route index element={<HomePage />} />
-            <Route path='/test' element={<Test />} />
+            <Route path='/page' element={<Page />} />
           </Route>
         </Route>
       </Routes>

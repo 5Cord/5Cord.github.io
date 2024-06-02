@@ -52,12 +52,14 @@ function HomePage() {
                 <SwiperSlide><div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                     <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Сайт предприятия</div>
                     <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
-                        <button
-                            onMouseEnter={() => setshowStackProject(true)}
-                            onMouseLeave={() => setshowStackProject(false)}>
-                            View Project
-                            <img src={iconButton} alt="" />
-                        </button>
+                        <Link to="/page">
+                            <button
+                                onMouseEnter={() => setshowStackProject(true)}
+                                onMouseLeave={() => setshowStackProject(false)}>
+                                View Project
+                                <img src={iconButton} alt="" />
+                            </button>
+                        </Link>
                     </div>
                     <div className={showStackProject ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
                         <div className={cl.button_viewProject_point}>HTML</div>
