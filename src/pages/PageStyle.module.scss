@@ -1,0 +1,41 @@
+$indent30: 2em;
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 192px 309px;
+}
+
+.container h1 {
+    font-size: 4.15em;
+    text-align: center;
+}
+
+.descriptrion_container {
+    display: flex;
+    gap: 47px;
+    align-content: center;
+    align-items: center;
+}
+
+.descriptrion_text {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: justify;
+}
+
+.preview {
+    text-align: center;
+    margin-top: $indent30;
+}
+
+.preview img {
+    width: 50%;
+}

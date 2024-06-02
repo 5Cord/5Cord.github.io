@@ -1,8 +1,7 @@
 .MainMenu {
     position: absolute;
-    overflow: hidden;
-    right: 0; /* Меню начально за пределами видимой области */
-    transform: translateX(100%); /* Скользит за пределы экрана */
+    right: 0;
+    transform: translateX(100%);
     background-color: #D9D9D9;
     width: 386px;
     height: 100%;
@@ -10,14 +9,12 @@
     align-items: center;
     flex-direction: column;
     z-index: 3;
-    transition: transform 0.3s; /* Плавное открытие/закрытие */
+    transition: transform 0.3s;
 }
 
 .MainMenu_open {
-    transform: translateX(0); /* Меню появляется на экране */
+    transform: translateX(0);
 }
-
-
 
 .MainMenu_title {
     margin-top: 19%;

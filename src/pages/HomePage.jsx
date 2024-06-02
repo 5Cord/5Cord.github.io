@@ -33,7 +33,6 @@ function HomePage() {
     const handleCaseClickPrev = () => {
         changePage(swiperRef.current, 'prev', setCountPage);
     };
-
     return (
         <>
             <Swiper
