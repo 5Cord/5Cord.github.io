@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import MyFace from './image/MyFace.png';
 import Arrow from './image/Arrow.svg';
 import Star from './image/Star.svg';
@@ -92,16 +93,17 @@ function App() {
           <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
             <button
               onMouseEnter={() => setshowStackProject(true)}
-              onMouseLeave={() => setshowStackProject(false)}
-            >View Project <img src={iconButton} alt="" /></button> </div>
+              onMouseLeave={() => setshowStackProject(false)}>
+              View Project
+              <img src={iconButton} alt="" />
+            </button>
+          </div>
           <div className={showStackProject ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
-
-              <div className={cl.button_viewProject_point}>HTML</div>
-              <div className={cl.button_viewProject_point}>SCSS</div>
-              <div className={cl.button_viewProject_point}>PHP</div>
-              <div className={cl.button_viewProject_point}>Mysql</div>
-              <div className={cl.button_viewProject_point}>JS</div>
-
+            <div className={cl.button_viewProject_point}>HTML</div>
+            <div className={cl.button_viewProject_point}>SCSS</div>
+            <div className={cl.button_viewProject_point}>PHP</div>
+            <div className={cl.button_viewProject_point}>Mysql</div>
+            <div className={cl.button_viewProject_point}>JS</div>
           </div>
         </div></SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
