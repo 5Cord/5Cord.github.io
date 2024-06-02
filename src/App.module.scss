@@ -125,21 +125,18 @@ body {
 
 .ringUp {
     position: absolute;
-    height: 157px;
     left: 507px;
     opacity: 1;
-    top: 0px;
+    top: -235px;
     /* Исходное значение top */
     width: 253px;
 }
 
 .ringDown {
     position: absolute;
-    height: 311px;
-    left: -10px;
+    left: -271px;
     opacity: 1;
-    top: 769px;
-    width: 201px;
+    top: 639px;
 }
 
 .button_viewProject button {

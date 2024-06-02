@@ -22,7 +22,6 @@ function App() {
       document.documentElement.style.overflow = 'hidden';
     }
 
-    // Очистка эффекта при размонтировании компонента или смене маршрута
     return () => {
       document.documentElement.style.overflow = 'auto';
     };

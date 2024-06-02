@@ -25,7 +25,6 @@ function HomePage() {
     const [countPage, setCountPage] = useState(0);
     const [showStackProject, setshowStackProject] = useState(false);
 
-
     const handleCaseClick = () => {
         changePage(swiperRef.current, 'next', setCountPage);
     };
@@ -40,7 +39,7 @@ function HomePage() {
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={(swiper) => {
-                    swiperRef.current = swiper; // Сохранение ссылки на Swiper
+                    swiperRef.current = swiper;
                 }}
                 className={cl.fullPageSwiper}
             >

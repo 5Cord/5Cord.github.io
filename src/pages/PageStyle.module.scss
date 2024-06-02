@@ -1,4 +1,6 @@
-$indent30: 2em;
+$indent30: 4.5%;
+$indent100: 7.7%;
+;
 
 html {
     height: 100%;
@@ -14,7 +16,7 @@ html {
 }
 
 .container h1 {
-    font-size: 4.15em;
+    font-size: 4vw;
     text-align: center;
 }
 
@@ -38,4 +40,37 @@ html {
 
 .preview img {
     width: 50%;
+}
+
+.container_stack {
+    display: flex;
+    justify-content: center;
+    gap: 16px
+}
+
+.point_stack {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 133px;
+    height: 43px;
+    background-color: #D9D9D9;
+}
+
+.h1_indent100 {
+    margin-top: $indent100;
+}
+
+.approach_container {
+    display: flex;
+    gap: 73px;
+    align-content: center;
+    align-items: center;
+}
+
+.approach_text {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: justify;
 }

@@ -25,7 +25,7 @@ function Layout() {
     return (
         <>
             <header>
-                <MainMenu show={showMenu} />
+                {/* <MainMenu show={showMenu} /> */}
                 <div className={cl.header}>
                     <div className={cl.header_logo}>
                         <img src={MyFace} className={cl.header_logo_img} alt="MyFace" />
