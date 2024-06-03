@@ -15,9 +15,20 @@ html {
     padding: 192px 309px 100px 309px;
 }
 
-.container h1 {
+.container h1:first-child {
     font-size: 4vw;
     text-align: center;
+    margin-top: 0;
+    margin-bottom: $indent30;
+}
+
+.container h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 4vw;
+    text-align: center;
+    margin-top: $indent100;
+    margin-bottom: $indent30;
 }
 
 .descriptrion_container {
@@ -56,10 +67,6 @@ html {
     width: 133px;
     height: 43px;
     background-color: #D9D9D9;
-}
-
-.h1_indent100 {
-    margin-top: $indent100;
 }
 
 .approach_container {
@@ -102,14 +109,15 @@ footer {
 
 footer img {
     width: 42px;
+    cursor: pointer;
 }
 
-
-.container_tecnology{
+.container_tecnology {
     position: relative;
 }
 
 .background_shadow {
+    z-index: 1;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -122,5 +130,8 @@ footer img {
 }
 
 .background_shadow img {
+    z-index: 1;
     text-align: center;
+    width: 65%;
+    height: 26vh;
 }

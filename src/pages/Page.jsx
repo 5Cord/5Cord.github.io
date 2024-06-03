@@ -47,8 +47,8 @@ function Page() {
             </div>
             <footer>
                 <div className={cl.footer_text}>Frontend-developer</div>
-                <img src={iconT} alt="" />
-                <img src={iconG} alt="" />
+                <a target='_blank' href="https://t.me/vaydmitry"><img src={iconT} alt="iconTelegram" /></a>
+                <a target='_blank' href="https://github.com/5Cord"><img src={iconG} alt="iconGHub" /></a>
             </footer>
         </>
     )

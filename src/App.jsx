@@ -4,6 +4,7 @@ import Star from './image/Star.svg';
 import RingUp from './image/RingUp.svg';
 import RingDown from './image/RingDown.svg';
 import { Page } from './pages/Page';
+import { About } from './pages/AboutPage';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
@@ -15,7 +16,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/page') {
+    if (location.pathname !== '/') {
       document.documentElement.style.overflow = 'scroll';
       document.documentElement.style.overflowX = 'hidden';
     } else {
@@ -38,6 +39,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path='/page' element={<Page />} />
+          <Route path='/about' element={<About />} />
         </Route>
       </Routes>
     </>

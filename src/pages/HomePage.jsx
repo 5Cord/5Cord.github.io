@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-
 import Arrow from '../image/Arrow.svg';
 import iconButton from '../image/iconButton.svg';
 import { Scrollbar, A11y } from 'swiper/modules';

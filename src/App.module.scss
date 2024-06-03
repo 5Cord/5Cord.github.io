@@ -17,12 +17,18 @@ body {
 }
 
 .header {
+    z-index: 4;
     display: flex;
     justify-content: space-between;
     position: absolute;
     align-items: center;
     margin: $indent;
     width: 84%;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
 }
 
 .header_logo {
@@ -148,6 +154,10 @@ body {
     border: none;
     margin-bottom: 3vw;
     cursor: pointer;
+}
+
+.button_viewProject a {
+    text-decoration: none;
 }
 
 .button_viewProject_point {
