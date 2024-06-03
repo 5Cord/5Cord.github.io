@@ -1,6 +1,6 @@
 $indent30: 4.5%;
 $indent100: 7.7%;
-;
+$fontSize3lvl: 150%;
 
 html {
     height: 100%;
@@ -28,7 +28,7 @@ html {
 }
 
 .descriptrion_text {
-    font-size: 25px;
+    font-size: $fontSize3lvl;
     font-weight: 400;
     text-align: justify;
 }
@@ -49,7 +49,7 @@ html {
 }
 
 .point_stack {
-    font-size: 25px;
+    font-size: $fontSize3lvl;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,7 @@ html {
 }
 
 .approach_text {
-    font-size: 25px;
+    font-size: $fontSize3lvl;
     font-weight: 400;
     text-align: justify;
 }
@@ -86,4 +86,41 @@ html {
 
 .gallery img {
     width: 70%;
+}
+
+footer {
+    width: 100%;
+    height: 66px;
+    background: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    font-size: $fontSize3lvl;
+    text-align: center;
+}
+
+footer img {
+    width: 42px;
+}
+
+
+.container_tecnology{
+    position: relative;
+}
+
+.background_shadow {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: -17px;
+    display: flex;
+    justify-content: center;
+}
+
+.background_shadow img {
+    text-align: center;
 }
