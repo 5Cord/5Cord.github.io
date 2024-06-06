@@ -1,4 +1,4 @@
-$indent30: 4.5%;
+$indent30: 2.4%;
 $indent100: 7.7%;
 $fontSize3lvl: 150%;
 
@@ -58,8 +58,10 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
-    width: calc(5 * 133px + 4 * 16px); /* Ширина 5 блоков плюс 4 промежутка между ними */
-    margin: 0 auto; /* Центрирование контейнера */
+    width: calc(5 * 133px + 4 * 16px);
+    /* Ширина 5 блоков плюс 4 промежутка между ними */
+    margin: 0 auto;
+    /* Центрирование контейнера */
 }
 
 

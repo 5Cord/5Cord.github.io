@@ -1,5 +1,50 @@
 @import 'PageStyle.module.scss';
+$title_expitriens: 225%;
+$date_expitriens: 162%;
 
-.container_myFace{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+.container_myFace {
     text-align: center;
+}
+
+.container_tecnology {
+    margin-top: $indent100;
+}
+
+.title_experience {
+    font-size: $title_expitriens;
+    font-weight: bold;
+    margin-top: $indent30;
+}
+
+.cointainer_dates_work {
+    display: flex;
+    gap: 6px;
+
+    color: #BFBFBF;
+    font-size: $date_expitriens;
+    font-weight: bold;
+}
+
+.experience_description {
+    font-size: $date_expitriens;
+    text-align: justify;
+}
+
+.experience_description>div:nth-child(n+1) {
+    margin-bottom: $indent30;
+    /* Замените $indent30 на нужное значение отступа */
+}
+
+.container_experience {
+    margin-top: $indent30;
 }
