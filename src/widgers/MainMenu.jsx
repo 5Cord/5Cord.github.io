@@ -9,8 +9,8 @@ function MainMenu({ show }) { // Получаем пропс show
             <div className={`${cl.MainMenu} ${show ? cl.MainMenu_open : ''}`}>
                 <div className={cl.MainMenu_title}>Меню</div>
                 <div className={cl.MainMenu_point}><Link to="/about">Обо мне</Link></div>
-                <div className={cl.MainMenu_point}>Контакты</div>
-                <div className={cl.MainMenu_point}>GitHub</div>
+                <div className={cl.MainMenu_point}><Link to="/contact" target='_blank'>Контакты</Link></div>
+                <div className={cl.MainMenu_point}><Link to="https://github.com/5Cord" target='_blank'>Github</Link></div>
                 <div className={cl.MainMenu_point}>Резюме</div>
             </div>
         </>

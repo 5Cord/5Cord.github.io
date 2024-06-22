@@ -11,6 +11,7 @@ import 'swiper/css/scrollbar';
 import cl from './App.module.scss';
 import { Layout } from './component/Layout';
 import HomePage from './pages/HomePage';
+import { Contact } from './pages/Contact';
 
 function App() {
   const location = useLocation();
@@ -40,6 +41,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path='/page' element={<Page />} />
           <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
         </Route>
       </Routes>
     </>

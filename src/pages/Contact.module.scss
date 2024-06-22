@@ -1,0 +1,69 @@
+@import 'PageStyle.module.scss';
+@import 'AboutStyle.module.scss';
+
+.block_form {
+    width: 651px;
+    height: 631px;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    border: 3px solid #565653;
+}
+
+.block_form p {
+    text-align: center;
+    font-size: 2.9em;
+    padding: 19px 0;
+    font-weight: bold;
+}
+
+.block_form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    margin: 80px;
+}
+
+
+.block_form input,
+textarea {
+    background-color: #E9EDF1;
+    border: solid 2px #565653;
+    width: 410px;
+    height: 50px;
+    font-size: 26px;
+    padding: 6px 0 0 12px;
+    color: #565653;
+}
+
+.block_form button {
+    background-color: #E9EDF1;
+    border: solid 2px #565653;
+    width: 168px;
+    height: 52px;
+    font-size: 26px;
+}
+
+.block_form button:hover {
+    cursor: pointer;
+    background-color: #d5d9dd;
+    border: solid 2px #565653;
+    width: 168px;
+    height: 52px;
+    font-size: 26px;
+}
+
+.block_form textarea {
+    border-color: #565653;
+    width: 410px;
+    resize: vertical;
+    height: 150px;
+    max-height: 200px;
+}
+
+::placeholder {
+    color: #565653;
+    font-size: 26px;
+}
