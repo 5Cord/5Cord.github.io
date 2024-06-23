@@ -25,7 +25,7 @@ function Layout() {
     return (
         <>
             <header>
-                {/* <MainMenu show={showMenu} /> */}
+                <MainMenu show={showMenu} />
                 <div className={cl.header}>
                     <Link to="/about">
                         <div className={cl.header_logo}>
