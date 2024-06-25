@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import cl from '../App.module.scss';
+import axios from 'axios';
 const changePage = (swiper, direction, setCount) => {
     if (swiper) {
         if (direction === 'next') {
@@ -31,6 +32,21 @@ function HomePage() {
     const handleCaseClickPrev = () => {
         changePage(swiperRef.current, 'prev', setCountPage);
     };
+
+    const [titles, setTitles] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/getTitle');
+            setTitles(response.data);
+        } catch (error) {
+            console.error('Ошибка при загрузке данных:', error);
+        }
+    };
     return (
         <>
             <Swiper
@@ -46,28 +62,33 @@ function HomePage() {
                     <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
                     <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
                 </div></SwiperSlide>
-                <SwiperSlide><div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
-                    <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Сайт предприятия</div>
-                    <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
-                        <Link to="/page">
-                            <button
-                                onMouseEnter={() => setshowStackProject(true)}
-                                onMouseLeave={() => setshowStackProject(false)}>
-                                View Project
-                                <img src={iconButton} alt="" />
-                            </button>
-                        </Link>
-                    </div>
-                    <div className={showStackProject ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
-                        <div className={cl.button_viewProject_point}>HTML</div>
-                        <div className={cl.button_viewProject_point}>SCSS</div>
-                        <div className={cl.button_viewProject_point}>PHP</div>
-                        <div className={cl.button_viewProject_point}>Mysql</div>
-                        <div className={cl.button_viewProject_point}>JS</div>
-                    </div>
-                </div></SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
+                {titles.map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
+                            <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>
+                                {item.title}
+                            </div>
+                            <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
+                                <Link to="/page">
+                                    <button
+                                        onMouseEnter={() => setshowStackProject(true)}
+                                        onMouseLeave={() => setshowStackProject(false)}
+                                    >
+                                        View Project
+                                        <img src={iconButton} alt="" />
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className={showStackProject ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
+                                <div className={cl.button_viewProject_point}>HTML</div>
+                                <div className={cl.button_viewProject_point}>SCSS</div>
+                                <div className={cl.button_viewProject_point}>PHP</div>
+                                <div className={cl.button_viewProject_point}>Mysql</div>
+                                <div className={cl.button_viewProject_point}>JS</div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
             <div className={cl.arrowCase} onClick={handleCaseClick}>
                 <div className={cl.case_text}>Кейсы</div>
