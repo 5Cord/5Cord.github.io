@@ -1,4 +1,5 @@
 $indent: 70px 148px;
+$indent320: 70px 19px;
 
 html {
     height: 100%;
@@ -198,4 +199,136 @@ body {
     width: 427px;
     gap: 14px;
     margin: 14px;
+}
+
+.fullPageSwiper_mobile {
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .fullPageSwiper_mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .fullPageSwiper {
+        display: none;
+    }
+
+    .header {
+        z-index: 4;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        align-items: center;
+        margin: $indent320;
+        width: 88%;
+    }
+
+    .header_logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .header_logo img {
+        width: 37px;
+        height: 52px;
+    }
+
+    .header_logo_text {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .header_menu_pointMenu {
+        width: 13px;
+        height: 13px;
+        background: #D9D9D9;
+        border-radius: 50%;
+    }
+
+    .contrainer_center_text {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .arrowCase {
+        display: none;
+    }
+
+    .arrowCasePrev {
+        display: none;
+    }
+
+    .ringDown {
+        position: absolute;
+        left: -237px;
+        opacity: 1;
+        top: 432px;
+        width: 100%;
+    }
+
+    .ringUp {
+        position: absolute;
+        left: 35px;
+        opacity: 1;
+        top: -235px;
+        width: 253px;
+    }
+
+    .star {
+        position: absolute;
+        background-color: transparent;
+        height: 109%;
+        width: 99vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .container_block {
+        overflow-y: auto;
+        max-height: 176vw;
+    }
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        width: 321px;
+        height: 161.7px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        overflow-y: auto;
+        max-height: 99vw;
+    }
+
+    .block img {
+        width: 10%;
+        margin: 0 auto;
+    }
+
+    .noSwipe {
+        pointer-events: none;
+        /* Отключаем события указателя */
+    }
+
+    .cont_block_text {
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+        margin: 0 11px;
+    }
+
+    .contrainer_center_title {
+        margin-top: 0vh;
+    }
 }

@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Arrow from '../image/Arrow.svg';
 import iconButton from '../image/iconButton.svg';
+import Animate from '../image/Animation.gif';
 import { Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -50,6 +51,68 @@ function HomePage() {
     return (
         <>
             <Swiper
+                direction="vertical"
+                modules={[Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                onSwiper={(swiper) => {
+                    swiperRef.current = swiper;
+                }}
+                className={cl.fullPageSwiper_mobile}
+                noSwiping={true}
+                noSwipingClass={cl.noSwipe}
+            >
+                <SwiperSlide><div className={cl.contrainer_center}>
+                    <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
+                    <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
+                    <img src={Animate} alt="" />
+                </div></SwiperSlide>
+                <SwiperSlide>
+                    {titles.map((item, index) => (
+                        <div key={index} className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
+                            <div className={cl.container_block}>
+                                <Link to={`/page`}>
+                                    <div className={cl.block}>
+                                        <img src={item.miniI} alt="" />
+                                        <div className={cl.cont_block_text}>
+                                            <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
+                                        </div>
+                                    </div>
+                                </Link>
+                                <Link to={`/page`}>
+                                    <div className={cl.block}>
+                                        <img src={item.miniI} alt="" />
+                                        <div className={cl.cont_block_text}>
+                                            <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
+                                        </div>
+                                    </div>
+                                </Link>
+                                <Link to={`/page`}>
+                                    <div className={cl.block}>
+                                        <img src={item.miniI} alt="" />
+                                        <div className={cl.cont_block_text}>
+                                            <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
+                                        </div>
+                                    </div>
+                                </Link>
+                                <Link to={`/page`}>
+                                    <div className={cl.block}>
+                                        <img src={item.miniI} alt="" />
+                                        <div className={cl.cont_block_text}>
+                                            <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </SwiperSlide>
+            </Swiper>
+            <Swiper
                 modules={[Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
@@ -58,10 +121,12 @@ function HomePage() {
                 }}
                 className={cl.fullPageSwiper}
             >
-                <SwiperSlide><div className={cl.contrainer_center}>
-                    <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
-                    <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
-                </div></SwiperSlide>
+                <SwiperSlide>
+                    <div className={cl.contrainer_center}>
+                        <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
+                        <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
+                    </div>
+                </SwiperSlide>
                 {titles.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
@@ -69,13 +134,13 @@ function HomePage() {
                                 {item.title}
                             </div>
                             <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
-                                <Link to="/page">
+                                <Link to={`/page`}>
                                     <button
                                         onMouseEnter={() => setshowStackProject(true)}
                                         onMouseLeave={() => setshowStackProject(false)}
                                     >
                                         View Project
-                                        <img src={iconButton} alt="" />
+                                        <img src={item.miniI} alt="" />
                                     </button>
                                 </Link>
                             </div>
