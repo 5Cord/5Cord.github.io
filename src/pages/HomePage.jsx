@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import cl from '../App.module.scss';
 import axios from 'axios';
+import LottieAnimation from '../widgers/LottieAnimation';
 const changePage = (swiper, direction, setCount) => {
     if (swiper) {
         if (direction === 'next') {
@@ -65,51 +66,25 @@ function HomePage() {
                 <SwiperSlide><div className={cl.contrainer_center}>
                     <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
                     <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
-                    <img src={Animate} alt="" />
+                    <LottieAnimation />
                 </div></SwiperSlide>
                 <SwiperSlide>
-                    {titles.map((item, index) => (
-                        <div key={index} className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
-                            <div className={cl.container_block}>
-                                <Link to={`/page`}>
-                                    <div className={cl.block}>
+                    <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
+                        <div className={cl.container_block}>
+                            {titles.map((item, index) => (
+                                <Link key={index} to={`/page`}>
+                                    <div className={cl.block} style={{ backgroundImage: `url(${item.miniI})` }}>
+                                        {/* <div className={cl.block} style={{ backgroundImage: `url(../image/Screenshot.svg)` }}> */}
                                         <img src={item.miniI} alt="" />
                                         <div className={cl.cont_block_text}>
                                             <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
+                                            <div className={cl.block_stack}>{item.stack}</div>
                                         </div>
                                     </div>
                                 </Link>
-                                <Link to={`/page`}>
-                                    <div className={cl.block}>
-                                        <img src={item.miniI} alt="" />
-                                        <div className={cl.cont_block_text}>
-                                            <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
-                                        </div>
-                                    </div>
-                                </Link>
-                                <Link to={`/page`}>
-                                    <div className={cl.block}>
-                                        <img src={item.miniI} alt="" />
-                                        <div className={cl.cont_block_text}>
-                                            <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
-                                        </div>
-                                    </div>
-                                </Link>
-                                <Link to={`/page`}>
-                                    <div className={cl.block}>
-                                        <img src={item.miniI} alt="" />
-                                        <div className={cl.cont_block_text}>
-                                            <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>HTML, CSS, PHP, JS, JQuery</div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </SwiperSlide>
             </Swiper>
             <Swiper
