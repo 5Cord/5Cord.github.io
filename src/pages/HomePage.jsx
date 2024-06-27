@@ -71,17 +71,22 @@ function HomePage() {
                 <SwiperSlide>
                     <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                         <div className={cl.container_block}>
-                            {titles.map((item, index) => (
-                                <Link key={index} to={`/page`}>
-                                    <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}>
-                                        <img src={item.miniI} alt="" />
+                            {/* {titles.map((item, index) => ( */}
+                                <Link to={`/page`}>
+                                {/* <Link key={index} to={`/page`}> */}
+                                    <div className={cl.block}>
+                                    {/* <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}> */}
+                                        <img src='' alt="" />
+                                        {/* <img src={item.miniI} alt="" /> */}
                                         <div className={cl.cont_block_text}>
-                                            <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>{item.stack}</div>
+                                            <div className={cl.block_text}>123</div>
+                                            <div className={cl.block_stack}>123</div>
+                                            {/* <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>{item.stack}</div> */}
                                         </div>
                                     </div>
                                 </Link>
-                            ))}
+                            {/* ))} */}
                         </div>
                     </div>
                 </SwiperSlide>
