@@ -73,8 +73,7 @@ function HomePage() {
                         <div className={cl.container_block}>
                             {titles.map((item, index) => (
                                 <Link key={index} to={`/page`}>
-                                    <div className={cl.block} style={{ backgroundImage: `url(${item.miniI})` }}>
-                                        {/* <div className={cl.block} style={{ backgroundImage: `url(../image/Screenshot.svg)` }}> */}
+                                    <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}>
                                         <img src={item.miniI} alt="" />
                                         <div className={cl.cont_block_text}>
                                             <div className={cl.block_text}>{item.title}</div>

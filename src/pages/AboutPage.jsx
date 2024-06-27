@@ -2,12 +2,14 @@ import React from 'react'
 import iconT from '../image/iconT.png';
 import iconG from '../image/iconG.png';
 import MyFaceBig from '../image/bigFace.png';
+import MyFace2 from '../image/MyFace2.png';
 import cl from './AboutStyle.module.scss';
+import Star from '../image/Star.svg';
 function About() {
     return (
         <>
             <div className={cl.container}>
-                <h1>Привет! Я молодой <br></br>
+                <h1> <b>Привет!</b> Я молодой <br></br>
                     Frontend developer</h1>
                 <div className={cl.container_myFace}><img src={MyFaceBig} alt="" /></div>
                 <div className={cl.container_tecnology}>
@@ -37,6 +39,9 @@ function About() {
                             <div>Также разработал приложение для управления данными о пропусках и персонале. Реализовал: фильтрацию, поиск, добавление примечаний и просмотр информации о рабочих которые прошли через систему пропусков. Экспортирование/импортирование данных соответственно Получившееся приложение готово к коммерческому использованию.</div>
                         </div>
                     </div>
+                </div>
+                <div className={cl.startBetween}>
+                    <img src={Star} alt="" />
                 </div>
                 <div className={cl.container_experience}>
                     <div className={cl.container_experience_description}>

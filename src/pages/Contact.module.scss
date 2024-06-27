@@ -67,3 +67,55 @@ textarea {
     color: #565653;
     font-size: 26px;
 }
+
+@media only screen and (max-width: 600px) {
+    .block_form form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-content: center;
+        margin: 30px;
+    }
+
+    .block_form {
+        width: 98%;
+        height: 100%;
+        background-color: #FFFFFF;
+        margin: 0 auto;
+        border: 3px solid #565653;
+    }
+
+    .block_form input,
+    textarea {
+        background-color: #E9EDF1;
+        border: solid 2px #565653;
+        width: 85%;
+        height: 20%;
+        font-size: 20px;
+        padding: 2% 0 0 3%;
+        color: #565653;
+    }
+
+    .block_form textarea {
+        border-color: #565653;
+        width: 85%;
+        resize: vertical;
+        height: 150px;
+        max-height: 200px;
+    }
+
+    .block_form button {
+        text-align: center;
+        background-color: #E9EDF1;
+        border: solid 2px #565653;
+        width: 110px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    ::placeholder {
+        color: #565653;
+        font-size: 20px;
+    }
+}

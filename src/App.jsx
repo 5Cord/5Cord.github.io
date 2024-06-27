@@ -28,13 +28,15 @@ function App() {
       document.documentElement.style.overflow = 'auto';
     };
   }, [location]);
-
+  const isPageRoute = location.pathname === '/page';
   return (
     <>
       <div className={cl.background}>
         <img className={cl.star} src={Star} alt="" />
         <img className={cl.ringUp} src={RingUp} alt="" />
-        <img className={cl.ringDown} src={RingDown} alt="" />
+        {!isPageRoute && (
+          <img className={cl.ringDown} src={RingDown} alt="" />
+        )}
       </div>
       <Routes>
         <Route path='/' element={<Layout />}>

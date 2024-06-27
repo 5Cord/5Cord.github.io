@@ -39,6 +39,8 @@ function Page() {
                     <div className={cl.approach_text}>Mountaire Farms turned to Lounge Lizard to design and build a new website and brand communication strategy that resonated with specific use case personas, and positioned the company with integrity and transparency.
                         Lounge Lizard developed the messaging strategies and visual design and developed the website with modern responsive programming techniques.</div>
                 </div>
+                <div className={cl.blockMobile}>
+                </div>       
                 <div className={cl.gallery}>
                     <img src={Gallery1} alt="" />
                     {/* <img src={Gallery2} alt="" />

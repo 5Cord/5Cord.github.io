@@ -48,3 +48,56 @@ p {
 .container_experience {
     margin-top: $indent30;
 }
+
+.startBetween {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .cointainer_dates_work {
+        display: flex;
+        gap: 6px;
+        color: #BFBFBF;
+        font-size: 100%;
+        font-weight: bold;
+    }
+
+    h1 b {
+        display: none;
+    }
+
+    .container_stack {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        transform: rotate(0);
+    }
+
+    .container_experience {
+        margin-top: $indent100;
+    }
+
+    .title_experience {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 2.4%;
+    }
+
+    .experience_description {
+        display: none;
+    }
+
+    .startBetween img {
+        width: 50%;
+    }
+
+    .startBetween {
+        display: block;
+        text-align: center;
+        transform: rotate(60deg);
+    }
+
+    .container_myFace img {
+        width: 70%;
+    }
+}

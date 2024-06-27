@@ -1,6 +1,10 @@
+@import '../App.module.scss';
+
 $indent30: 2.4%;
 $indent100: 7.7%;
 $fontSize3lvl: 150%;
+$fontSize3lvlAdapt: 40%;
+
 
 html {
     height: 100%;
@@ -50,7 +54,7 @@ html {
 }
 
 .preview img {
-    width: 50%;
+    width: 100%;
 }
 
 .container_stack {
@@ -59,11 +63,8 @@ html {
     justify-content: center;
     gap: 16px;
     width: calc(5 * 133px + 4 * 16px);
-    /* Ширина 5 блоков плюс 4 промежутка между ними */
     margin: 0 auto;
-    /* Центрирование контейнера */
 }
-
 
 .point_stack {
     font-size: $fontSize3lvl;
@@ -77,9 +78,13 @@ html {
 
 .approach_container {
     display: flex;
-    gap: 73px;
     align-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.approach_container img {
+    display: none;
 }
 
 .approach_text {
@@ -140,4 +145,87 @@ footer img {
     text-align: center;
     width: 65%;
     height: 26vh;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        position: relative;
+        z-index: 2;
+        padding: 140px 19px 19px 19px;
+    }
+
+    .container h1 {
+        font-size: 36px;
+    }
+
+    .container h1:first-child {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: $indent30;
+    }
+
+    .descriptrion_text {
+        display: none;
+    }
+
+    .descriptrion_container img {
+        display: none;
+    }
+
+    .container_stack {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        transform: rotate(355deg);
+    }
+
+    .point_stack {
+        font-size: $fontSize3lvl;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 72.69px;
+        height: 23.97px;
+        background-color: #D9D9D9;
+        font-size: 16px;
+    }
+
+    .approach_text {
+        font-size: 15px;
+        font-weight: 400;
+        text-align: justify;
+        margin-bottom: $indent100;
+    }
+
+    .gallery {
+        display: none;
+    }
+
+    .ringDown {
+        display: none !important;
+    }
+
+    footer {
+        font-size: 90%;
+        height: 40px;
+    }
+
+    footer img {
+        width: 22px;
+        cursor: pointer;
+    }
+
+    .blockMobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 321px;
+        height: 161.7px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        margin: 0 auto;
+        background: url(../image/Group.svg);
+    }
 }
