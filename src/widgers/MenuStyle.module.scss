@@ -27,3 +27,42 @@
     font-size: 42px;
     margin-bottom: 8%;
 }
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    .MainMenu {
+        position: absolute;
+        right: 0;
+        transform: translateX(100%);
+        background-color: #d9d9d900;
+        width: 300px;
+        height: 1%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        z-index: 7;
+        transition: transform 0.3s;
+        margin-top: 70px;
+    }
+
+    .MainMenu_open {
+        transform: translateX(20%);
+    }
+
+    .MainMenu_title {
+        display: none;
+    }
+
+    .MainMenu_point {
+        font-size: 22px;
+        margin-bottom: 1%;
+    }
+
+    .MainMenu_point a {
+        text-decoration: none;
+        color: black;
+    }
+}
