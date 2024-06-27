@@ -106,11 +106,13 @@ function HomePage() {
                         <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
                     </div>
                 </SwiperSlide>
-                {titles.map((item, index) => (
-                    <SwiperSlide key={index}>
+                {/* {titles.map((item, index) => ( */}
+                    <SwiperSlide >
+                    {/* <SwiperSlide key={index}> */}
                         <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                             <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>
-                                {item.title}
+                                {/* {item.title} */}
+                                123
                             </div>
                             <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
                                 <Link to={`/page`}>
@@ -119,7 +121,8 @@ function HomePage() {
                                         onMouseLeave={() => setshowStackProject(false)}
                                     >
                                         View Project
-                                        <img src={item.miniI} alt="" />
+                                        <img src='' alt="" />
+                                        {/* <img src={item.miniI} alt="" /> */}
                                     </button>
                                 </Link>
                             </div>
@@ -132,7 +135,7 @@ function HomePage() {
                             </div>
                         </div>
                     </SwiperSlide>
-                ))}
+                {/* ))} */}
             </Swiper>
             <div className={cl.arrowCase} onClick={handleCaseClick}>
                 <div className={cl.case_text}>Кейсы</div>
