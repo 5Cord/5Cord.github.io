@@ -147,6 +147,105 @@ footer img {
     height: 26vh;
 }
 
+@media only screen and (max-width: 1510px) {
+    .container {
+        position: relative;
+        z-index: 2;
+        padding: 192px 109px 100px 109px;
+    }
+
+    .container h1:first-child {
+        font-size: 3vw;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: $indent30;
+    }
+
+    .container_stack {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .descriptrion_container img {
+        width: 6vw;
+    }
+
+    .preview img {
+        width: 80%;
+    }
+
+    .descriptrion_text {
+        font-size: 150%;
+        font-weight: 400;
+        text-align: justify;
+    }
+
+    .approach_text {
+        font-size: 150%;
+        font-weight: 400;
+        text-align: justify;
+    }
+
+    .container h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 3vw;
+        text-align: center;
+        margin-top: 7.7%;
+        margin-bottom: 2.4%;
+    }
+
+    .point_stack {
+        font-size: 2vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 3.5vw;
+        background-color: #D9D9D9;
+    }
+
+}
+
+@media only screen and (max-width: 1110px) {
+    .container {
+        position: relative;
+        z-index: 2;
+        padding: 192px 109px 100px 109px;
+    }
+
+    .container h1:first-child {
+        font-size: 4vw;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 2.4%;
+    }
+    .container h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 4vw;
+        text-align: center;
+        margin-top: 7.7%;
+        margin-bottom: 2.4%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .descriptrion_container img {
+        width: 8vw;
+    }
+    .descriptrion_text {
+        font-size: 130%;
+        font-weight: 400;
+        text-align: justify;
+    }
+}
+
+
 @media only screen and (max-width: 600px) {
     .container {
         position: relative;

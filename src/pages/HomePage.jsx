@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import Arrow from '../image/Arrow.svg';
-import iconButton from '../image/iconButton.svg';
-import Animate from '../image/Animation.gif';
+// import iconButton from '../image/iconButton.svg';
+// import Animate from '../image/Animation.gif';
 import { Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -71,22 +71,17 @@ function HomePage() {
                 <SwiperSlide>
                     <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                         <div className={cl.container_block}>
-                            {/* {titles.map((item, index) => ( */}
-                                <Link to={`/page`}>
-                                {/* <Link key={index} to={`/page`}> */}
-                                    <div className={cl.block}>
-                                    {/* <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}> */}
-                                        <img src='' alt="" />
-                                        {/* <img src={item.miniI} alt="" /> */}
+                            {titles.map((item, index) => (
+                                <Link key={index} to={`/page`}>
+                                    <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}>
+                                        <img src={item.miniI} alt="" />
                                         <div className={cl.cont_block_text}>
-                                            <div className={cl.block_text}>123</div>
-                                            <div className={cl.block_stack}>123</div>
-                                            {/* <div className={cl.block_text}>{item.title}</div>
-                                            <div className={cl.block_stack}>{item.stack}</div> */}
+                                            <div className={cl.block_text}>{item.title}</div>
+                                            <div className={cl.block_stack}>{item.stack}</div>
                                         </div>
                                     </div>
                                 </Link>
-                            {/* ))} */}
+                            ))}
                         </div>
                     </div>
                 </SwiperSlide>
@@ -106,13 +101,11 @@ function HomePage() {
                         <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
                     </div>
                 </SwiperSlide>
-                {/* {titles.map((item, index) => ( */}
-                    <SwiperSlide >
-                    {/* <SwiperSlide key={index}> */}
+                {titles.map((item, index) => (
+                    <SwiperSlide key={index}>
                         <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                             <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>
-                                {/* {item.title} */}
-                                123
+                                {item.title}
                             </div>
                             <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
                                 <Link to={`/page`}>
@@ -121,8 +114,7 @@ function HomePage() {
                                         onMouseLeave={() => setshowStackProject(false)}
                                     >
                                         View Project
-                                        <img src='' alt="" />
-                                        {/* <img src={item.miniI} alt="" /> */}
+                                        <img src={item.miniI} alt="" />
                                     </button>
                                 </Link>
                             </div>
@@ -135,7 +127,7 @@ function HomePage() {
                             </div>
                         </div>
                     </SwiperSlide>
-                {/* ))} */}
+                ))}
             </Swiper>
             <div className={cl.arrowCase} onClick={handleCaseClick}>
                 <div className={cl.case_text}>Кейсы</div>

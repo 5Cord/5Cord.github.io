@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import MyFace from '../image/MyFace.png';
 import cl from '../App.module.scss';
-import MainMenu from '../widgers/MainMenu';
+// import MainMenu from '../widgers/MainMenu';
 
 function Layout() {
     const [showMenu, setShowMenu] = useState(false);
@@ -33,11 +33,11 @@ function Layout() {
                             <div className={cl.header_logo_text}>VD</div>
                         </div>
                     </Link>
-                    <div className={cl.header_menu} onClick={handleMenu}>
-                        <div className={cl.header_menu_pointMenu}></div>
-                        <div className={cl.header_menu_pointMenu}></div>
-                        <div className={cl.header_menu_pointMenu}></div>
-                    </div>
+                </div>
+                <div className={cl.header_menu} onClick={handleMenu}>
+                    <div className={cl.header_menu_pointMenu}></div>
+                    <div className={cl.header_menu_pointMenu}></div>
+                    <div className={cl.header_menu_pointMenu}></div>
                 </div>
             </header>
             <Outlet />
