@@ -9,8 +9,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import cl from './App.module.scss';
-import { Layout } from './component/Layout';
-import HomePage from './pages/HomePage';
+import { Layout } from './component/Layout.jsx';
+import HomePage from './pages/HomePage.jsx';
 import { Contact } from './pages/Contact';
 
 function App() {
