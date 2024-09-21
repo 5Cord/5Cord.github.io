@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import MyFace from '../image/MyFace.png';
 import cl from '../App.module.scss';
-// import MainMenu from '../widgers/MainMenu';
+import MainMenu from '../widgers/MainMenu';
 
 function Layout() {
     const [showMenu, setShowMenu] = useState(false);
@@ -25,7 +25,7 @@ function Layout() {
     return (
         <>
             <header>
-                {/* <MainMenu show={showMenu} /> */}
+                <MainMenu show={showMenu} />
                 <div className={cl.header}>
                     <Link to="/about">
                         <div className={cl.header_logo}>

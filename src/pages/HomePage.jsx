@@ -11,6 +11,7 @@ import 'swiper/css/scrollbar';
 import cl from '../App.module.scss';
 import axios from 'axios';
 import LottieAnimation from '../widgers/LottieAnimation';
+
 const changePage = (swiper, direction, setCount) => {
     if (swiper) {
         if (direction === 'next') {
@@ -22,10 +23,11 @@ const changePage = (swiper, direction, setCount) => {
         }
     }
 };
+
 function HomePage() {
     const swiperRef = useRef(null);
     const [countPage, setCountPage] = useState(0);
-    const [showStackProject, setshowStackProject] = useState(false);
+    const [showStackProject, setShowStackProject] = useState(false);
 
     const handleCaseClick = () => {
         changePage(swiperRef.current, 'next', setCountPage);
@@ -43,12 +45,13 @@ function HomePage() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/getTitle');
+            const response = await axios.get('https://66edecfa380821644cde55df.mockapi.io/project'); // Здесь указывается URL вашего API
             setTitles(response.data);
         } catch (error) {
             console.error('Ошибка при загрузке данных:', error);
         }
     };
+
     return (
         <>
             <Swiper
@@ -63,11 +66,13 @@ function HomePage() {
                 noSwiping={true}
                 noSwipingClass={cl.noSwipe}
             >
-                <SwiperSlide><div className={cl.contrainer_center}>
-                    <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
-                    <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
-                    <LottieAnimation />
-                </div></SwiperSlide>
+                <SwiperSlide>
+                    <div className={cl.contrainer_center}>
+                        <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>Vaytovich Dmitriy</div>
+                        <div className={`${cl.contrainer_center_down} ${cl.contrainer_center_text}`}>Frontend разработчик</div>
+                        <LottieAnimation />
+                    </div>
+                </SwiperSlide>
                 <SwiperSlide>
                     <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                         <div className={cl.container_block}>
@@ -110,8 +115,8 @@ function HomePage() {
                             <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
                                 <Link to={`/page`}>
                                     <button
-                                        onMouseEnter={() => setshowStackProject(true)}
-                                        onMouseLeave={() => setshowStackProject(false)}
+                                        onMouseEnter={() => setShowStackProject(true)}
+                                        onMouseLeave={() => setShowStackProject(false)}
                                     >
                                         View Project
                                         <img src={item.miniI} alt="" />
@@ -122,7 +127,7 @@ function HomePage() {
                                 <div className={cl.button_viewProject_point}>HTML</div>
                                 <div className={cl.button_viewProject_point}>SCSS</div>
                                 <div className={cl.button_viewProject_point}>PHP</div>
-                                <div className={cl.button_viewProject_point}>Mysql</div>
+                                <div className={cl.button_viewProject_point}>MySQL</div>
                                 <div className={cl.button_viewProject_point}>JS</div>
                             </div>
                         </div>
@@ -133,12 +138,14 @@ function HomePage() {
                 <div className={cl.case_text}>Кейсы</div>
                 <img src={Arrow} className={cl.case_arrow} alt="Arrow" />
             </div>
-            {countPage ? (<div className={cl.arrowCasePrev} onClick={handleCaseClickPrev}>
-                <img src={Arrow} className={cl.case_arrowPrev} alt="Arrow" />
-                <div className={cl.case_text}>Назад</div>
-            </div>) : ''}
-
+            {countPage ? (
+                <div className={cl.arrowCasePrev} onClick={handleCaseClickPrev}>
+                    <img src={Arrow} className={cl.case_arrowPrev} alt="Arrow" />
+                    <div className={cl.case_text}>Назад</div>
+                </div>
+            ) : ''}
         </>
-    )
+    );
 }
-export default HomePage
+
+export default HomePage;

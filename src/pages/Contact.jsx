@@ -14,7 +14,7 @@ function Contact() {
         event.preventDefault();
         try {
             const newPost = { nameUser, emailUser, messageUser };
-            const response = await axios.post('http://localhost:3000/sendFeedback', newPost);
+            const response = await axios.post('https://66edecfa380821644cde55df.mockapi.io/feedback', newPost);
             console.log('Form sends:', response.data);
             alert('Сообщение успешно отправлено!');
             setNameUser('');

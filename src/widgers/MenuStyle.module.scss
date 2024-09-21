@@ -1,20 +1,22 @@
 .MainMenu {
-    position: absolute;
+    position: fixed;
+    top: 0;
     right: 0;
-    transform: translateX(100%);
-    background-color: #D9D9D9;
-    width: 386px;
+    width: 250px; // Установите ширину по необходимости
     height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    max-height: 100vh; // Ограничиваем высоту меню высотой экрана
+    overflow-y: auto; // Добавляем вертикальный скролл внутри меню, если его содержимое превышает высоту экрана
+    background-color: #fff; // Добавьте нужный цвет фона
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); // Скроем меню за экраном
     z-index: 7;
-    transition: transform 0.3s;
+    padding: 50px;
 }
 
 .MainMenu_open {
-    transform: translateX(0);
+    transform: translateX(0); // Покажем меню при открытии
 }
+
 
 .MainMenu_title {
     margin-top: 19%;
