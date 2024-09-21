@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, BrowserRouter as Router } from 'react-router-dom';
 import Star from './image/Star.svg';
 import RingUp from './image/RingUp.svg';
 import RingDown from './image/RingDown.svg';
@@ -28,22 +28,24 @@ function App() {
       document.documentElement.style.overflow = 'auto';
     };
   }, [location]);
+
   const isPageRoute = location.pathname === '/page';
+
   return (
     <>
       <div className={cl.background}>
-        <img className={cl.star} src={Star} alt="" />
-        <img className={cl.ringUp} src={RingUp} alt="" />
+        <img className={cl.star} src={Star} alt="Star" />
+        <img className={cl.ringUp} src={RingUp} alt="RingUp" />
         {!isPageRoute && (
-          <img className={cl.ringDown} src={RingDown} alt="" />
+          <img className={cl.ringDown} src={RingDown} alt="RingDown" />
         )}
       </div>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path='/page' element={<Page />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='page' element={<Page />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
         </Route>
       </Routes>
     </>
