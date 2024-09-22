@@ -10,6 +10,7 @@ function MainMenu({ show, onAnimationEnd }) { // Получаем пропс sho
                 <div
                     className={`${cl.MainMenu} ${show ? cl.MainMenu_open : cl.MainMenu_close}`} onAnimationEnd={onAnimationEnd}>
                     <div className={cl.MainMenu_title}>Меню</div>
+                    <div className={cl.MainMenu_point}><Link to="/">Проекты</Link></div>
                     <div className={cl.MainMenu_point}><Link to="/about">Обо мне</Link></div>
                     <div className={cl.MainMenu_point}><Link to="/contact">Контакты</Link></div>
                     <div className={cl.MainMenu_point}><Link to="https://github.com/5Cord" target='_blank'>Github</Link></div>
