@@ -40,18 +40,18 @@ body.no-scroll {
         right: 0;
         transform: translateX(100%);
         background-color: #d9d9d900;
-        width: 300px;
-        height: 1%;
+        width: 100px;
+        height: 100vh; /* 100% высоты окна */
         display: flex;
         align-items: center;
         flex-direction: column;
         z-index: 7;
         transition: transform 0.3s;
-        margin-top: 70px;
     }
-
+    
     .MainMenu_open {
-        transform: translateX(20%);
+        transform: translateX(10%);
+        background-color: #d9d9d983;
     }
 
     .MainMenu_title {
