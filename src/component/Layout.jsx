@@ -6,13 +6,22 @@ import MainMenu from '../widgers/MainMenu';
 
 function Layout() {
     const [showMenu, setShowMenu] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
+
     const handleMenu = (event) => {
         event.stopPropagation();
-        setShowMenu((prev) => !prev);
+        if (!showMenu) {
+            setIsAnimating(true);
+            setShowMenu(true);
+        } else {
+            setIsAnimating(true);
+        }
     };
+
     useEffect(() => {
-        const closeMenu = () => {
-            if (showMenu) {
+        const closeMenu = (e) => {
+            if (showMenu && !e.target.closest('.MainMenu')) {
+                setIsAnimating(true);
                 setShowMenu(false);
             }
         };
@@ -22,10 +31,19 @@ function Layout() {
             document.removeEventListener('click', closeMenu);
         };
     }, [showMenu]);
+
+    const handleAnimationEnd = () => {
+        if (!showMenu) {
+            setIsAnimating(false);
+        }
+    };
+
     return (
         <>
             <header>
-                <MainMenu show={showMenu} />
+                {(showMenu || isAnimating) && (
+                    <MainMenu show={showMenu} onAnimationEnd={handleAnimationEnd} />
+                )}
                 <div className={cl.header}>
                     <Link to="/about">
                         <div className={cl.header_logo}>
@@ -42,7 +60,7 @@ function Layout() {
             </header>
             <Outlet />
         </>
-    )
+    );
 }
 
-export { Layout }
+export { Layout };
