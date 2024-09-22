@@ -10,12 +10,8 @@ function Layout() {
 
     const handleMenu = (event) => {
         event.stopPropagation();
-        if (!showMenu) {
-            setIsAnimating(true);
-            setShowMenu(true);
-        } else {
-            setIsAnimating(true);
-        }
+        setIsAnimating(true);
+        setShowMenu(!showMenu);
     };
 
     useEffect(() => {
@@ -41,9 +37,7 @@ function Layout() {
     return (
         <>
             <header>
-                {(showMenu || isAnimating) && (
-                    <MainMenu show={showMenu} onAnimationEnd={handleAnimationEnd} />
-                )}
+                <MainMenu show={showMenu} onAnimationEnd={handleAnimationEnd} />
                 <div className={cl.header}>
                     <Link to="/about">
                         <div className={cl.header_logo}>
