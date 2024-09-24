@@ -29,6 +29,7 @@ function HomePage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showStackProjects, setShowStackProjects] = useState({});
+    const [isEnd, setIsEnd] = useState(false);
 
     useEffect(() => {
         fetchData();
@@ -45,13 +46,15 @@ function HomePage() {
             setLoading(false);
         }
     };
-    
+
     const handleCaseClick = () => {
         changePage(swiperRef.current, 'next', setCountPage);
+        setIsEnd(swiperRef.current.isEnd);  // Проверяем, достигли ли конца
     };
 
     const handleCaseClickPrev = () => {
         changePage(swiperRef.current, 'prev', setCountPage);
+        setIsEnd(swiperRef.current.isEnd);  // Проверяем, достигли ли конца
     };
 
     return (
@@ -69,7 +72,9 @@ function HomePage() {
                         slidesPerView={1}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
+                            setIsEnd(swiper.isEnd);  // Устанавливаем начальное значение
                         }}
+                        onSlideChange={() => setIsEnd(swiperRef.current.isEnd)}  // Обновляем состояние на изменение слайда
                         className={cl.fullPageSwiper_mobile}
                         noSwiping={true}
                         noSwipingClass={cl.noSwipe}
@@ -111,7 +116,9 @@ function HomePage() {
                         slidesPerView={1}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
+                            setIsEnd(swiper.isEnd);  // Устанавливаем начальное значение
                         }}
+                        onSlideChange={() => setIsEnd(swiperRef.current.isEnd)}  // Обновляем состояние на изменение слайда
                         className={cl.fullPageSwiper}
                     >
                         <SwiperSlide>
@@ -138,20 +145,22 @@ function HomePage() {
                                         </Link>
                                     </div>
                                     <div className={showStackProjects[index] ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
-                                        <div className={cl.button_viewProject_point}>HTML</div>
-                                        <div className={cl.button_viewProject_point}>SCSS</div>
-                                        <div className={cl.button_viewProject_point}>PHP</div>
-                                        <div className={cl.button_viewProject_point}>MySQL</div>
-                                        <div className={cl.button_viewProject_point}>JS</div>
+                                    {item.stack.split(', ').map((tech, techIndex) => (
+        <div key={techIndex} className={cl.button_viewProject_point}>
+            {tech}
+        </div>
+    ))}
                                     </div>
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <div className={cl.arrowCase} onClick={handleCaseClick}>
-                        <div className={cl.case_text}>Кейсы</div>
-                        <img src={Arrow} className={cl.case_arrow} alt="Arrow" />
-                    </div>
+                    {!isEnd && (  // Показываем кнопку только если это не конец
+                        <div className={cl.arrowCase} onClick={handleCaseClick}>
+                            <div className={cl.case_text}>Кейсы</div>
+                            <img src={Arrow} className={cl.case_arrow} alt="Arrow" />
+                        </div>
+                    )}
                     {countPage ? (
                         <div className={cl.arrowCasePrev} onClick={handleCaseClickPrev}>
                             <img src={Arrow} className={cl.case_arrowPrev} alt="Arrow" />

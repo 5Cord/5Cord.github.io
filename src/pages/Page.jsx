@@ -60,8 +60,7 @@ function Page() {
                 <h1 className={cl.h1_indent100}>Подход</h1>
                 <div className={cl.approach_container}>
                     <div className={cl.approach_myface}><img src={MyFace2} alt="" /></div>
-                    <div className={cl.approach_text}>Mountaire Farms turned to Lounge Lizard to design and build a new website and brand communication strategy that resonated with specific use case personas, and positioned the company with integrity and transparency.
-                        Lounge Lizard developed the messaging strategies and visual design and developed the website with modern responsive programming techniques.</div>
+                    <div className={cl.approach_text}>{product.approach}</div>
                 </div>
                 <div className={cl.blockMobile}>
                 </div>
