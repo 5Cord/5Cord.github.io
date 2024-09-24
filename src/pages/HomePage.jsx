@@ -36,7 +36,7 @@ function HomePage() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://66edecfa380821644cde55df.mockapi.io/project');
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/project`);
             setTitles(response.data);
         } catch (error) {
             console.error('Ошибка при загрузке данных:', error);
@@ -45,7 +45,7 @@ function HomePage() {
             setLoading(false);
         }
     };
-
+    
     const handleCaseClick = () => {
         changePage(swiperRef.current, 'next', setCountPage);
     };
@@ -85,9 +85,15 @@ function HomePage() {
                             <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
                                 <div className={cl.container_block}>
                                     {titles.map((item, index) => (
-                                        <Link key={index} to={`/page`}>
-                                            <div className={cl.block} style={{ backgroundImage: `url(${item.fullI})` }}>
-                                                <img src={item.miniI} alt="" />
+                                        <Link key={index} to={`/page/${item.id}`} className={cl.link}>
+                                            <div className={cl.block} style={{
+                                                backgroundImage: `url(${item.fullI})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: 'no-repeat',
+                                            }}>
+                                                <div className={cl.overlay}></div>
+                                                <img src={item.miniI} alt="little_img" className={cl.white_icon} />
                                                 <div className={cl.cont_block_text}>
                                                     <div className={cl.block_text}>{item.title}</div>
                                                     <div className={cl.block_stack}>{item.stack}</div>
@@ -121,7 +127,7 @@ function HomePage() {
                                         {item.title}
                                     </div>
                                     <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
-                                        <Link to={`/page`}>
+                                        <Link to={`/page/${item.id}`}>
                                             <button
                                                 onMouseEnter={() => setShowStackProjects((prev) => ({ ...prev, [index]: true }))}
                                                 onMouseLeave={() => setShowStackProjects((prev) => ({ ...prev, [index]: false }))}

@@ -14,11 +14,11 @@ function Contact() {
         event.preventDefault();
         try {
             const newPost = { nameUser, emailUser, messageUser };
-            const response = await axios.post('https://66edecfa380821644cde55df.mockapi.io/feedback', newPost);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/feedback`, newPost);
             console.log('Form sends:', response.data);
             alert('Сообщение успешно отправлено!');
             setNameUser('');
-            seteMailUser('');
+            seteMailUser('');  // Убедитесь, что функция названа правильно, должно быть setEmailUser
             setMessageUser('');
         } catch (error) {
             if (error.response && error.response.data) {
@@ -30,6 +30,7 @@ function Contact() {
             }
         }
     };
+    
 
     return (
         <>

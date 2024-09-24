@@ -39,7 +39,7 @@ function Layout() {
             <header>
                 <MainMenu show={showMenu} onAnimationEnd={handleAnimationEnd} />
                 <div className={cl.header}>
-                    <Link to="/about">
+                    <Link to="/">
                         <div className={cl.header_logo}>
                             <img src={MyFace} className={cl.header_logo_img} alt="MyFace" />
                             <div className={cl.header_logo_text}>VD</div>

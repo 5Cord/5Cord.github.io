@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../image/Belzan.png';
 import Preview from '../image/Primavera.png';
 import MyFace2 from '../image/MyFace2.png';
@@ -9,28 +9,52 @@ import iconT from '../image/iconT.png';
 import iconG from '../image/iconG.png';
 import Shadow from '../image/shadow.svg';
 import cl from './PageStyle.module.scss';
+import { useParams } from 'react-router-dom';
 function Page() {
+    const { id } = useParams();
+    const [product, setProduct] = useState([]);
+    const [stackData, setStackData] = useState([]);
+
+    useEffect(() => {
+        console.log(import.meta.env.VITE_API_URL);
+
+        fetch(`${import.meta.env.VITE_API_URL}/project/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    // Если ответ не в порядке, выводим статус
+                    console.error('Ошибка сети:', response.status, response.statusText);
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setProduct(data);
+                const stackArray = data.stack.split(',').map(item => item.trim());
+                setStackData(stackArray);
+            })
+            .catch(error => console.error('Ошибка при получении данных о продукте:', error));
+    }, [id]); 
+
     return (
         <>
             <div className={cl.container}>
-                <h1>Сайт предприятия БелЗАН</h1>
+                <h1>{product.title}</h1>
                 <div className={cl.descriptrion_container}>
-                    <div className={cl.descriptrion_logo}><img src={Logo} alt="" /></div>
-                    <div className={cl.descriptrion_text}>Mountaire Farms is a fast growing agricultural food processing company with almost
-                        10,000 employees at their facilities in Arkansas, Delaware, Maryland, Virginia, and North Carolina.</div>
+                    <div className={cl.descriptrion_logo}><img src={product.miniI} alt="" /></div>
+                    <div className={cl.descriptrion_text}>{product.descriptrion}</div>
                 </div>
                 <div className={cl.preview}>
-                    <img src={Preview} alt="" />
+                    <img src={product.pcImg} alt="" />
                 </div>
                 <div className={cl.container_tecnology}>
                     <div className={cl.background_shadow}><img src={Shadow} alt="" /></div>
                     <h1 className={cl.h1_indent100}>Технологии</h1>
                     <div className={cl.container_stack}>
-                        <div className={cl.point_stack}>HTML</div>
-                        <div className={cl.point_stack}>SASS</div>
-                        <div className={cl.point_stack}>PHP</div>
-                        <div className={cl.point_stack}>MySQL</div>
-                        <div className={cl.point_stack}>JS</div>
+                        {stackData.map((item, index) => (
+                            <div key={index} className={cl.point_stack}>
+                                {item}
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <h1 className={cl.h1_indent100}>Подход</h1>
@@ -40,7 +64,7 @@ function Page() {
                         Lounge Lizard developed the messaging strategies and visual design and developed the website with modern responsive programming techniques.</div>
                 </div>
                 <div className={cl.blockMobile}>
-                </div>       
+                </div>
                 <div className={cl.gallery}>
                     <img src={Gallery1} alt="" />
                     {/* <img src={Gallery2} alt="" />
