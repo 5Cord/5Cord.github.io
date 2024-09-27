@@ -15,9 +15,10 @@ import { Contact } from './pages/Contact';
 import useParallax from './useParallax.jsx';
 
 function App() {
-  const offset1 = useParallax(0.05); // Настройте скорость для каждого элемента
-  const offset2 = useParallax(0.03);
-  const offset3 = useParallax(0.04);
+  const isMobile = window.innerWidth < 768; // Определяем, мобильное ли устройство
+  const offset1 = useParallax(isMobile ? 0 : 0.05); // Отключаем параллакс на мобильных
+  const offset2 = useParallax(isMobile ? 0 : 0.03);
+  const offset3 = useParallax(isMobile ? 0 : 0.04);
   
   const location = useLocation();
 
@@ -38,34 +39,34 @@ function App() {
 
   return (
     <>
-    <div className={cl.background}>
-      <img
-        className={cl.star}
-        src={Star}
-        alt="Star"
-        style={{
-          transform: `translate(${offset1.x}px, ${offset1.y}px)`,
-        }}
-      />
-      <img
-        className={cl.ringUp}
-        src={RingUp}
-        alt="RingUp"
-        style={{
-          transform: `translate(${offset2.x}px, ${offset2.y}px)`,
-        }}
-      />
-      {!isPageRoute && (
+      <div className={cl.background}>
         <img
-          className={cl.ringDown}
-          src={RingDown}
-          alt="RingDown"
+          className={cl.star}
+          src={Star}
+          alt="Star"
           style={{
-            transform: `translate(${offset3.x}px, ${offset3.y}px)`,
+            transform: `translate(${offset1.x}px, ${offset1.y}px)`,
           }}
         />
-      )}
-    </div>
+        <img
+          className={cl.ringUp}
+          src={RingUp}
+          alt="RingUp"
+          style={{
+            transform: `translate(${offset2.x}px, ${offset2.y}px)`,
+          }}
+        />
+        {!isPageRoute && (
+          <img
+            className={cl.ringDown}
+            src={RingDown}
+            alt="RingDown"
+            style={{
+              transform: `translate(${offset3.x}px, ${offset3.y}px)`,
+            }}
+          />
+        )}
+      </div>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -79,5 +80,3 @@ function App() {
 }
 
 export default App;
-
-
