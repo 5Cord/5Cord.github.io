@@ -15,9 +15,10 @@ import { Contact } from './pages/Contact';
 import useParallax from './useParallax.jsx';
 
 function App() {
-  const offset1 = useParallax(0.03); // Настройте скорость для каждого элемента
-  const offset2 = useParallax(0.05);
-  const offset3 = useParallax(0.08);
+  const offset1 = useParallax(0.05); // Настройте скорость для каждого элемента
+  const offset2 = useParallax(0.03);
+  const offset3 = useParallax(0.04);
+  
   const location = useLocation();
 
   useEffect(() => {
@@ -78,3 +79,5 @@ function App() {
 }
 
 export default App;
+
+
