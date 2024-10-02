@@ -151,6 +151,10 @@ footer img {
     width: 6vw;
 }
 
+.link{
+    display: none;
+}
+
 @media only screen and (max-width: 1510px) {
     .container {
         position: relative;
@@ -336,6 +340,7 @@ footer img {
     }
 
     .link {
+        display: block;
         text-decoration: none;
         color: black;
         text-align: center;

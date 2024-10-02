@@ -44,8 +44,7 @@ function Page() {
                 </div>
                 <div className={cl.descriptrion_container}>
                     <div className={cl.descriptrion_logo}><img src={product.miniI} alt="" /></div>
-                    <div className={cl.descriptrion_text}>{product.descriptrion}.
-                        <a target='_bank' href={product.link}>link</a>
+                    <div className={cl.descriptrion_text}>{product.descriptrion}. <a target='_bank' href={product.link}>link</a>
                     </div>
                 </div>
                 <div className={cl.preview}>
@@ -66,8 +65,7 @@ function Page() {
                 </div>
                 <div className={cl.gallery}>
                     {/* <img src={Gallery1} alt="" /> */}
-                    <a target='_blank' href={product.link}>link</a>
-                    <iframe src={product.link} width="375" height="667"></iframe>
+                    <iframe src={product.linkPhone} width="375" height="667"></iframe>
                 </div>
             </div>
             <footer>
