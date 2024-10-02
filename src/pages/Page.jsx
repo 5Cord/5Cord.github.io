@@ -33,15 +33,20 @@ function Page() {
                 setStackData(stackArray);
             })
             .catch(error => console.error('Ошибка при получении данных о продукте:', error));
-    }, [id]); 
+    }, [id]);
 
     return (
         <>
             <div className={cl.container}>
                 <h1>{product.title}</h1>
+                <div className={cl.link}>
+                    <a className={cl.link} target='_bank' href={product.link}>link</a>
+                </div>
                 <div className={cl.descriptrion_container}>
                     <div className={cl.descriptrion_logo}><img src={product.miniI} alt="" /></div>
-                    <div className={cl.descriptrion_text}>{product.descriptrion}</div>
+                    <div className={cl.descriptrion_text}>{product.descriptrion}.
+                        <a target='_bank' href={product.link}>link</a>
+                    </div>
                 </div>
                 <div className={cl.preview}>
                     <img src={product.pcImg} alt="" />
@@ -57,17 +62,12 @@ function Page() {
                         ))}
                     </div>
                 </div>
-                <h1 className={cl.h1_indent100}>Подход</h1>
-                <div className={cl.approach_container}>
-                    <div className={cl.approach_myface}><img src={MyFace2} alt="" /></div>
-                    <div className={cl.approach_text}>{product.approach}</div>
-                </div>
                 <div className={cl.blockMobile}>
                 </div>
                 <div className={cl.gallery}>
-                    <img src={Gallery1} alt="" />
-                    {/* <img src={Gallery2} alt="" />
-                <img src={Gallery3} alt="" /> */}
+                    {/* <img src={Gallery1} alt="" /> */}
+                    <a target='_blank' href={product.link}>link</a>
+                    <iframe src={product.link} width="375" height="667"></iframe>
                 </div>
             </div>
             <footer>

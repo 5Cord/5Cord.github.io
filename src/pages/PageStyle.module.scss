@@ -228,6 +228,7 @@ footer img {
         margin-top: 0;
         margin-bottom: 2.4%;
     }
+
     .container h1 {
         position: relative;
         z-index: 2;
@@ -242,6 +243,7 @@ footer img {
     .descriptrion_container img {
         width: 8vw;
     }
+
     .descriptrion_text {
         font-size: 130%;
         font-weight: 400;
@@ -329,6 +331,20 @@ footer img {
         border-radius: 20px;
         margin-bottom: 20px;
         margin: 0 auto;
+        margin-top: 10.7%;
         background: url(../image/Group.svg);
     }
+
+    .link {
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+iframe {
+    border-radius: 20px 10px 30px 40px;
+    /* Верхний левый, верхний правый, нижний правый, нижний левый углы */
+    border: none;
 }
