@@ -26,6 +26,16 @@ body {
     margin: $indent;
 }
 
+button img{
+    z-index: 1;
+    filter: invert(1);
+}
+
+a[href="/page/3"] button img {
+    filter: none; /* Отключаем инвертирование для этого конкретного изображения */
+}
+
+
 .header a {
     text-decoration: none;
     color: black;
@@ -388,6 +398,9 @@ body {
 
     .white_icon {
         z-index: 1;
-        filter: invert(1);
+        filter: invert(0);
+    }
+    a[href="/page/3"] img {
+        filter: none; /* Отключаем инвертирование для этого конкретного изображения */
     }
 }

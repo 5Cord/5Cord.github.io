@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Arrow from '../image/Arrow.svg';
-import { Scrollbar, A11y } from 'swiper/modules';
+import { Scrollbar, A11y, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -21,6 +21,7 @@ const changePage = (swiper, direction, setCount) => {
         }
     }
 };
+
 
 function HomePage() {
     const swiperRef = useRef(null);
@@ -67,7 +68,8 @@ function HomePage() {
                 <>
                     <Swiper
                         direction="vertical"
-                        modules={[Scrollbar, A11y]}
+                        modules={[Scrollbar, A11y, Mousewheel]} // Подключаем модуль Mousewheel
+                        mousewheel={true} // Включаем прокрутку слайдов колесом мыши
                         spaceBetween={50}
                         slidesPerView={1}
                         onSwiper={(swiper) => {
@@ -92,7 +94,7 @@ function HomePage() {
                                     {titles.map((item, index) => (
                                         <Link key={index} to={`/page/${item.id}`} className={cl.link}>
                                             <div className={cl.block} style={{
-                                                backgroundImage: `url(${item.fullI})`,
+                                                // backgroundImage: `url(${item.fullI})`,
                                                 backgroundSize: 'cover',
                                                 backgroundPosition: 'center',
                                                 backgroundRepeat: 'no-repeat',
@@ -111,7 +113,7 @@ function HomePage() {
                         </SwiperSlide>
                     </Swiper>
                     <Swiper
-                        modules={[Scrollbar, A11y]}
+                        modules={[Scrollbar, A11y, Mousewheel]} 
                         spaceBetween={50}
                         slidesPerView={1}
                         onSwiper={(swiper) => {
@@ -120,6 +122,7 @@ function HomePage() {
                         }}
                         onSlideChange={() => setIsEnd(swiperRef.current.isEnd)}  // Обновляем состояние на изменение слайда
                         className={cl.fullPageSwiper}
+                        mousewheel={true}
                     >
                         <SwiperSlide>
                             <div className={cl.contrainer_center}>
@@ -145,11 +148,11 @@ function HomePage() {
                                         </Link>
                                     </div>
                                     <div className={showStackProjects[index] ? cl.button_viewProject_block_view : cl.button_viewProject_block}>
-                                    {item.stack.split(', ').map((tech, techIndex) => (
-        <div key={techIndex} className={cl.button_viewProject_point}>
-            {tech}
-        </div>
-    ))}
+                                        {item.stack.split(', ').map((tech, techIndex) => (
+                                            <div key={techIndex} className={cl.button_viewProject_point}>
+                                                {tech}
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </SwiperSlide>

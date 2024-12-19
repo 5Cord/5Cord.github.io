@@ -73,6 +73,7 @@ function Page() {
                 <a target='_blank' href="https://t.me/vaydmitry"><img src={iconT} alt="iconTelegram" /></a>
                 <a target='_blank' href="https://github.com/5Cord"><img src={iconG} alt="iconGHub" /></a>
             </footer>
+            
         </>
     )
 }
