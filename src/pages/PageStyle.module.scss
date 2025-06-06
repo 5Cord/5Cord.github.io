@@ -56,15 +56,6 @@ html {
     width: 100%;
 }
 
-.descriptrion_logo {
-    // filter: invert(3);
-}
-
-/* Исключаем инвертирование для конкретного изображения */
-.descriptrion_logo img[src="https://lh3.google.com/u/0/d/16gTNP53YMcIOs7eNQu_9yEdfQDPtqqvd=w1860-h935-iv1"] {
-    // filter: invert(1);
-}
-
 .container_stack {
     display: flex;
     flex-wrap: wrap;
