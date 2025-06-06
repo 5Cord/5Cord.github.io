@@ -1,5 +1,5 @@
-@import 'PageStyle.module.scss';
-@import 'AboutStyle.module.scss';
+@use 'PageStyle.module' as PageStyle;
+@use 'AboutStyle.module' as AboutStyle;
 
 .block_form {
     width: 651px;
@@ -25,7 +25,6 @@
     align-content: center;
     margin: 80px;
 }
-
 
 .block_form input,
 textarea {

@@ -1,8 +1,6 @@
-import React from 'react'
 import iconT from '../image/iconT.png';
 import iconG from '../image/iconG.png';
 import MyFaceBig from '../image/bigFace.png';
-// import MyFace2 from '../image/MyFace2.png';
 import cl from './AboutStyle.module.scss';
 import Star from '../image/Star.svg';
 function About() {

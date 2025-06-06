@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Arrow from '../image/Arrow.svg';
 import { Scrollbar, A11y, Mousewheel } from 'swiper/modules';

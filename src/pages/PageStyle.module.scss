@@ -1,10 +1,9 @@
-@import '../App.module.scss';
+@use '../App.module' as app;
 
 $indent30: 2.4%;
 $indent100: 7.7%;
 $fontSize3lvl: 150%;
 $fontSize3lvlAdapt: 40%;
-
 
 html {
     height: 100%;
@@ -57,7 +56,7 @@ html {
     width: 100%;
 }
 
-.descriptrion_logo{
+.descriptrion_logo {
     filter: invert(3);
 }
 
@@ -160,7 +159,7 @@ footer img {
     width: 6vw;
 }
 
-.link{
+.link {
     display: none;
 }
 
@@ -225,7 +224,6 @@ footer img {
         height: 3.5vw;
         background-color: #D9D9D9;
     }
-
 }
 
 @media only screen and (max-width: 1110px) {
@@ -263,7 +261,6 @@ footer img {
         text-align: justify;
     }
 }
-
 
 @media only screen and (max-width: 600px) {
     .container {
@@ -333,6 +330,7 @@ footer img {
         width: 22px;
         cursor: pointer;
     }
+
     .link {
         display: block;
         text-decoration: none;

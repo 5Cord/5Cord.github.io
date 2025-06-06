@@ -1,11 +1,7 @@
-@import 'PageStyle.module.scss';
+@use 'PageStyle.module' as PageStyle;
+
 $title_expitriens: 225%;
 $date_expitriens: 162%;
-
-
-// *{
-//     outline: 4px solid green !important;
-// }
 
 h1,
 h2,
@@ -22,13 +18,13 @@ p {
 }
 
 .container_tecnology {
-    margin-top: $indent100;
+    margin-top: PageStyle.$indent100;
 }
 
 .title_experience {
     font-size: $title_expitriens;
     font-weight: bold;
-    margin-top: $indent30;
+    margin-top: PageStyle.$indent30;
 }
 
 .cointainer_dates_work {
@@ -45,13 +41,12 @@ p {
     text-align: justify;
 }
 
-.experience_description>div:nth-child(n+1) {
-    margin-bottom: $indent30;
-    /* Замените $indent30 на нужное значение отступа */
+.experience_description > div:nth-child(n + 1) {
+    margin-bottom: PageStyle.$indent30;
 }
 
 .container_experience {
-    margin-top: $indent30;
+    margin-top: PageStyle.$indent30;
 }
 
 .startBetween {
@@ -79,7 +74,7 @@ p {
     }
 
     .container_experience {
-        margin-top: $indent100;
+        margin-top: PageStyle.$indent100;
     }
 
     .title_experience {

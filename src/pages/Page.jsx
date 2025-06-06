@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Logo from '../image/Belzan.png';
-import Preview from '../image/Primavera.png';
-import MyFace2 from '../image/MyFace2.png';
-import Gallery1 from '../image/Gallery.png';
-// import Gallery2 from '../image/Gallery2.png';
-// import Gallery3 from '../image/Gallery3.png';
+import { useEffect, useState } from 'react'
 import iconT from '../image/iconT.png';
 import iconG from '../image/iconG.png';
 import Shadow from '../image/shadow.svg';
