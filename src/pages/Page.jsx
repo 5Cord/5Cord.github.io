@@ -34,7 +34,7 @@ function Page() {
             <div className={cl.container}>
                 <h1>{product.title}</h1>
                 <div className={cl.link}>
-                    <a className={cl.link} target='_bank' href={product.link}>link</a>
+                    <a className={cl.link} target='_bank' href={product.link}>Ссылка на проект</a>
                 </div>
                 <div className={cl.descriptrion_container}>
                     <div className={cl.descriptrion_logo}><img src={product.miniI} alt="icon" /></div>
