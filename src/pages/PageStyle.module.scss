@@ -148,6 +148,7 @@ footer img {
 
 .descriptrion_container img {
     width: 6vw;
+    filter: grayscale(100%);
 }
 
 .link {
@@ -291,7 +292,7 @@ footer img {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 72.69px;
+        width: 28%;
         height: 23.97px;
         background-color: #D9D9D9;
         font-size: 16px;
@@ -335,4 +336,83 @@ iframe {
     border-radius: 20px 10px 30px 40px;
     /* Верхний левый, верхний правый, нижний правый, нижний левый углы */
     border: none;
+}
+
+
+@media only screen and (max-width: 407px) {
+    .container {
+        position: relative;
+        z-index: 1;
+        padding: 140px 19px 19px 19px;
+    }
+
+    .container h1 {
+        font-size: 36px;
+    }
+
+    .container h1:first-child {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: $indent30;
+    }
+
+    .descriptrion_text {
+        display: none;
+    }
+
+    .descriptrion_container img {
+        display: none;
+    }
+
+    .container_stack {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        transform: rotate(355deg);
+    }
+
+    .point_stack {
+        font-size: $fontSize3lvl;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        height: 23.97px;
+        background-color: #D9D9D9;
+        font-size: 14px;
+    }
+
+    .approach_text {
+        font-size: 15px;
+        font-weight: 400;
+        text-align: justify;
+        margin-bottom: $indent100;
+    }
+
+    .gallery {
+        display: none;
+    }
+
+    .ringDown {
+        display: none !important;
+    }
+
+    footer {
+        font-size: 90%;
+        height: 40px;
+    }
+
+    footer img {
+        width: 22px;
+        cursor: pointer;
+    }
+
+    .link {
+        display: block;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        cursor: pointer;
+    }
 }
