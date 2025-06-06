@@ -38,7 +38,7 @@ function Page() {
                 </div>
                 <div className={cl.descriptrion_container}>
                     <div className={cl.descriptrion_logo}><img src={product.miniI} alt="icon" /></div>
-                    <div className={cl.descriptrion_text}>{product.descriptrion}. <a target='_bank' href={product.link}>link</a>
+                    <div className={cl.descriptrion_text}>{product.descriptrion}. <a target='_bank' href={product.link}>Ссылка на проект</a>
                     </div>
                 </div>
                 <div className={cl.preview}>
