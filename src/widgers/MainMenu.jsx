@@ -1,23 +1,34 @@
-import React from 'react';
 import cl from './MenuStyle.module.scss';
-import { Route, Routes, Link } from "react-router-dom"
-import { About } from '../pages/AboutPage';
+import { Link } from 'react-router-dom';
 
-function MainMenu({ show, onAnimationEnd }) { // Получаем пропс show
+const NAV_LINKS = [
+    { label: 'Проекты',  to: '/' },
+    { label: 'Обо мне',  to: '/about' },
+    { label: 'Контакты', to: '/contact' },
+    { label: 'Github',   to: 'https://github.com/5Cord', external: true },
+    { label: 'Резюме',   to: 'https://spb.hh.ru/resume/82be0f0bff09e0050f0039ed1f37566f53696d', external: true },
+];
+
+function MainMenu({ show, onClose }) {
     return (
-        <>
-            {show && (
-                <div
-                    className={`${cl.MainMenu} ${show ? cl.MainMenu_open : cl.MainMenu_close}`} onAnimationEnd={onAnimationEnd}>
-                    <div className={cl.MainMenu_title}>Меню</div>
-                    <div className={cl.MainMenu_point}><Link to="/">Проекты</Link></div>
-                    <div className={cl.MainMenu_point}><Link to="/about">Обо мне</Link></div>
-                    <div className={cl.MainMenu_point}><Link to="/contact">Контакты</Link></div>
-                    <div className={cl.MainMenu_point}><Link to="https://github.com/5Cord" target='_blank'>Github</Link></div>
-                    <div className={cl.MainMenu_point}><Link to="https://spb.hh.ru/resume/82be0f0bff09e0050f0039ed1f37566f53696d?disableBrowserCache=true&hhtmFrom=resume_list" target='_blank'>Резюме</Link></div>
-                </div>
-            )}
-        </>
+        <div
+            className={`${cl.MainMenu} ${show ? cl.MainMenu_open : ''}`}
+            data-menu="panel"
+            aria-hidden={!show}
+        >
+            <div className={cl.MainMenu_title}>Меню</div>
+            <nav>
+                {NAV_LINKS.map(({ label, to, external }) => (
+                    <div key={label} className={cl.MainMenu_point} onClick={onClose}>
+                        {external ? (
+                            <a href={to} target="_blank" rel="noreferrer">{label}</a>
+                        ) : (
+                            <Link to={to}>{label}</Link>
+                        )}
+                    </div>
+                ))}
+            </nav>
+        </div>
     );
 }
 

@@ -1,77 +1,90 @@
+@keyframes menuSlideIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pointFade {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
 .MainMenu {
     position: fixed;
     top: 0;
     right: 0;
-    width: 250px; // Установите ширину по необходимости
+    width: 280px;
     height: 100%;
-    max-height: 100vh; // Ограничиваем высоту меню высотой экрана
-    overflow-y: auto; // Добавляем вертикальный скролл внутри меню, если его содержимое превышает высоту экрана
-    background-color: #fff; // Добавьте нужный цвет фона
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%); // Скроем меню за экраном
-    z-index: 7;
-    padding: 50px;
-}
+    background: #fff;
+    border-left: 1px solid #e8e8e8;
+    z-index: 100;
+    padding: 60px 44px;
+    box-sizing: border-box;
+    overflow-y: auto;
 
-.MainMenu_open {
-    transform: translateX(0); // Покажем меню при открытии
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.35s ease;
+
+    &_open {
+        pointer-events: auto;
+        opacity: 1;
+        transform: translateX(0);
+        animation: menuSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+
+        .MainMenu_point {
+            animation: pointFade 0.3s ease both;
+
+            @for $i from 1 through 6 {
+                &:nth-child(#{$i}) { animation-delay: #{$i * 0.05}s; }
+            }
+        }
+    }
 }
 
 .MainMenu_title {
-    margin-top: 19%;
-    font-size: 64px;
-    font-weight: bold;
-    margin-bottom: 5%;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-top: 18%;
+    margin-bottom: 8%;
+    letter-spacing: -0.02em;
+    color: #111;
 }
 
 .MainMenu_point {
-    font-size: 42px;
-    margin-bottom: 8%;
-}
+    font-size: 1.6rem;
+    margin-bottom: 6%;
+    line-height: 1.2;
 
-body.no-scroll {
-    overflow: hidden;
+    a {
+        text-decoration: none;
+        color: #333;
+        letter-spacing: 0.01em;
+        transition: color 0.2s, letter-spacing 0.2s;
+
+        &:hover {
+            color: #000;
+            letter-spacing: 0.04em;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {
-
-    /* Добавьте эти стили в App.module.scss */
     .MainMenu {
-        right: 20px;
-        width: 100px;
-        height: 100%;
-        max-height: 100vh;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        z-index: 7;
-        background-color: #d9d9d983;
-        opacity: 0;
-        transform: translateX(100%);
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        right: 0;
+        top: 0;
+        width: 180px;
+        padding: 80px 24px 40px;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid #ddd;
     }
 
-    .MainMenu_open {
-        opacity: 1;
-        transform: translateX(10%);
-    }
-
-    .MainMenu_close {
-        opacity: 0;
-    }
-
-
-    .MainMenu_title {
-        display: none;
-    }
+    .MainMenu_title { display: none; }
 
     .MainMenu_point {
-        font-size: 22px;
-        margin-bottom: 1%;
-    }
-
-    .MainMenu_point a {
-        text-decoration: none;
-        color: black;
+        font-size: 1.25rem;
+        margin-bottom: 10%;
     }
 }

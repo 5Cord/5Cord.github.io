@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import MyFace from '../image/MyFace.png';
 import cl from '../App.module.scss';
@@ -6,38 +6,25 @@ import MainMenu from '../widgers/MainMenu';
 
 function Layout() {
     const [showMenu, setShowMenu] = useState(false);
-    const [isAnimating, setIsAnimating] = useState(false);
 
-    const handleMenu = (event) => {
-        event.stopPropagation();
-        setIsAnimating(true);
-        setShowMenu(!showMenu);
+    const handleMenu = (e) => {
+        e.stopPropagation();
+        setShowMenu((prev) => !prev);
     };
+
+    const closeMenu = useCallback((e) => {
+        if (!e.target.closest('[data-menu]')) setShowMenu(false);
+    }, []);
 
     useEffect(() => {
-        const closeMenu = (e) => {
-            if (showMenu && !e.target.closest('.MainMenu')) {
-                setIsAnimating(true);
-                setShowMenu(false);
-            }
-        };
-
-        document.addEventListener('click', closeMenu);
-        return () => {
-            document.removeEventListener('click', closeMenu);
-        };
-    }, [showMenu]);
-
-    const handleAnimationEnd = () => {
-        if (!showMenu) {
-            setIsAnimating(false);
-        }
-    };
+        if (showMenu) document.addEventListener('click', closeMenu);
+        return () => document.removeEventListener('click', closeMenu);
+    }, [showMenu, closeMenu]);
 
     return (
         <>
             <header>
-                <MainMenu show={showMenu} onAnimationEnd={handleAnimationEnd} />
+                <MainMenu show={showMenu} onClose={() => setShowMenu(false)} />
                 <div className={cl.header}>
                     <Link to="/">
                         <div className={cl.header_logo}>
@@ -46,10 +33,15 @@ function Layout() {
                         </div>
                     </Link>
                 </div>
-                <div className={cl.header_menu} onClick={handleMenu}>
-                    <div className={cl.header_menu_pointMenu}></div>
-                    <div className={cl.header_menu_pointMenu}></div>
-                    <div className={cl.header_menu_pointMenu}></div>
+                <div
+                    className={`${cl.header_menu} ${showMenu ? cl.header_menu_open : ''}`}
+                    onClick={handleMenu}
+                    data-menu="trigger"
+                    aria-label="Открыть меню"
+                >
+                    <div className={cl.header_menu_pointMenu} />
+                    <div className={cl.header_menu_pointMenu} />
+                    <div className={cl.header_menu_pointMenu} />
                 </div>
             </header>
             <Outlet />

@@ -29,7 +29,7 @@ function About() {
                     <div className={cl.container_experience_description}>
                         <p className={cl.title_experience}>АО БелЗан <br></br>Инженер-программист</p>
                         <div className={cl.cointainer_dates_work}>
-                            <p className={cl.dates_work}>Август 2021 — август 2022</p>
+                            <p className={cl.dates_work}>2021 (август) — 2022 (август)</p>
                             <p className={cl.dates_work}>(1 Год)</p>
                         </div>
                         <div className={cl.experience_description}>

@@ -24,21 +24,11 @@ body {
     position: absolute;
     align-items: center;
     margin: $indent;
-}
 
-button img{
-    z-index: 1;
-    // filter: invert(1);
-}
-
-a[href="/page/3"] button img {
-    filter: none; /* Отключаем инвертирование для этого конкретного изображения */
-}
-
-
-.header a {
-    text-decoration: none;
-    color: black;
+    a {
+        text-decoration: none;
+        color: black;
+    }
 }
 
 .header_logo {
@@ -52,12 +42,12 @@ a[href="/page/3"] button img {
     font-weight: bold;
 }
 
-// .header_menu {
-//     display: flex;
-//     gap: 5px;
-//     cursor: pointer;
-//     z-index: 2;
-// }
+.header_logo_img {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+
+    &:hover { filter: grayscale(0%); }
+}
 
 .header_menu {
     z-index: 4;
@@ -68,7 +58,6 @@ a[href="/page/3"] button img {
     position: absolute;
     align-items: center;
     margin: 100px 148px;
-    ;
     right: 0;
 }
 
@@ -77,6 +66,11 @@ a[href="/page/3"] button img {
     height: 35px;
     background: #D9D9D9;
     border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.header_menu:hover .header_menu_pointMenu {
+    background: #bbb;
 }
 
 .contrainer_center_text {
@@ -105,7 +99,6 @@ a[href="/page/3"] button img {
     align-items: center;
     font-size: 30px;
     gap: 18px;
-    position: absolute;
     bottom: 0;
     margin: $indent;
     right: 0;
@@ -117,7 +110,6 @@ a[href="/page/3"] button img {
     display: flex;
     font-size: 30px;
     gap: 18px;
-    position: absolute;
     bottom: 0;
     margin: $indent;
     z-index: 2;
@@ -145,13 +137,11 @@ a[href="/page/3"] button img {
     width: 50vw;
 }
 
-
 .ringUp {
     position: absolute;
     left: 507px;
     opacity: 1;
     top: -235px;
-    /* Исходное значение top */
     width: 253px;
 }
 
@@ -162,30 +152,34 @@ a[href="/page/3"] button img {
     top: 639px;
 }
 
-.button_viewProject button {
-    font-weight: 100;
-    display: flex;
-    margin-top: 5%;
-    background-color: #D9D9D9;
-    width: 25vw;
-    height: 8.3vh;
-    font-size: 47%;
-    justify-content: center;
-    align-items: center;
-    padding: 17px 0;
-    gap: 5%;
-    border: none;
-    margin-bottom: 3vw;
-    cursor: pointer;
-}
+.button_viewProject {
+    button {
+        font-weight: 100;
+        display: flex;
+        margin-top: 5%;
+        background-color: #D9D9D9;
+        width: 25vw;
+        height: 8.3vh;
+        font-size: 47%;
+        justify-content: center;
+        align-items: center;
+        padding: 17px 0;
+        gap: 5%;
+        border: none;
+        margin-bottom: 3vw;
+        cursor: pointer;
+        transition: background 0.2s;
 
-.button_viewProject img {
-    filter: grayscale(100%);
-    width: 12%;
-}
+        &:hover { background-color: #c8c8c8; }
+    }
 
-.button_viewProject a {
-    text-decoration: none;
+    img {
+        filter: grayscale(100%);
+        width: 12%;
+        transition: filter 0.3s;
+    }
+
+    a { text-decoration: none; }
 }
 
 .button_viewProject_point {
@@ -208,7 +202,7 @@ a[href="/page/3"] button img {
     flex-wrap: wrap;
     gap: 14px;
     justify-content: space-between;
-    transition: 0.3s;
+    transition: opacity 0.3s;
 }
 
 .button_viewProject_block_view {
@@ -218,44 +212,23 @@ a[href="/page/3"] button img {
     flex-wrap: wrap;
     gap: 14px;
     justify-content: space-between;
-    transition: 0.3s;
-}
-
-.button_viewProject_downblock {
-    display: flex;
-    width: 427px;
-    gap: 14px;
-    margin: 14px;
+    transition: opacity 0.3s;
 }
 
 .fullPageSwiper_mobile {
     display: none;
 }
 
-// .block {
-//     background: url(./image/Screenshot.svg);
-// }
-
 @media only screen and (max-width: 760px) {
     .ringUp {
-        position: absolute;
         left: 307px;
-        opacity: 1;
         top: -300px;
         width: 253px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-
     .header_menu {
-        z-index: 2;
-        cursor: pointer;
-        display: flex;
-        gap: 5px;
-        justify-content: space-between;
-        position: absolute;
-        align-items: center;
         margin: 100px 19px;
         right: 0;
     }
@@ -273,34 +246,25 @@ a[href="/page/3"] button img {
     }
 
     .header {
-        z-index: 4;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         margin: $indent320;
     }
 
     .header_logo {
-        display: flex;
-        align-items: center;
         gap: 10px;
-    }
 
-    .header_logo img {
-        width: 37px;
-        height: 52px;
+        img {
+            width: 37px;
+            height: 52px;
+        }
     }
 
     .header_logo_text {
         font-size: 30px;
-        font-weight: bold;
     }
 
     .header_menu_pointMenu {
         width: 13px;
         height: 13px;
-        background: #D9D9D9;
-        border-radius: 50%;
     }
 
     .contrainer_center_text {
@@ -308,33 +272,24 @@ a[href="/page/3"] button img {
         text-align: center;
     }
 
-    .arrowCase {
-        display: none;
-    }
-
+    .arrowCase,
     .arrowCasePrev {
         display: none;
     }
 
     .ringDown {
-        position: absolute;
         left: -237px;
-        opacity: 1;
         top: 432px;
         width: 100%;
     }
 
     .ringUp {
-        position: absolute;
         left: 35px;
-        opacity: 1;
         top: -235px;
         width: 253px;
     }
 
     .star {
-        position: absolute;
-        background-color: transparent;
         height: 109%;
         width: 99vw;
         left: 50%;
@@ -359,38 +314,38 @@ a[href="/page/3"] button img {
         overflow-y: auto;
         max-height: 99vw;
         justify-content: center;
-    }
 
-    .block::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.678);
-        z-index: 1;
-    }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.678);
+            z-index: 1;
+        }
 
-    .block img {
-        width: 20%;
-        margin: 0 auto;
+        img {
+            width: 20%;
+            margin: 0 auto;
+            filter: grayscale(100%);
+        }
     }
 
     .noSwipe {
         pointer-events: none;
-        /* Отключаем события указателя */
     }
 
     .cont_block_text {
         z-index: 1;
         font-weight: bold;
-        color: rgb(255, 255, 255);
-        margin: 11px 11px;
+        color: #fff;
+        margin: 11px;
     }
 
     .contrainer_center_title {
-        margin-top: 0vh;
+        margin-top: 0;
     }
 
     .link {
@@ -399,9 +354,6 @@ a[href="/page/3"] button img {
 
     .white_icon {
         z-index: 1;
-        // filter: invert(0);
-    }
-    a[href="/page/3"] img {
-        filter: none; /* Отключаем инвертирование для этого конкретного изображения */
+        filter: grayscale(100%);
     }
 }

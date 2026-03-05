@@ -1,103 +1,168 @@
-@use 'PageStyle.module' as PageStyle;
+@use '../App.module' as app;
 
-$title_expitriens: 225%;
-$date_expitriens: 162%;
+$indent30:  2.4%;
+$indent100: 7.7%;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 140px 240px 100px;
+    animation: fadeUp 0.5s ease both;
+
+    h1:first-child {
+        font-size: clamp(2rem, 5vw, 3.6rem);
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: $indent30;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 2;
+        font-size: clamp(1.7rem, 4vw, 3rem);
+        text-align: center;
+        margin-top: $indent100;
+        margin-bottom: $indent30;
+        font-weight: 700;
+    }
 }
 
 .container_myFace {
     text-align: center;
+
+    img {
+        transition: transform 0.4s ease;
+        &:hover { transform: scale(1.02); }
+    }
 }
 
-.container_tecnology {
-    margin-top: PageStyle.$indent100;
+.container_tecnology { position: relative; margin-top: $indent100; }
+
+.container_stack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 700px;
 }
+
+.point_stack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 26px;
+    background: #f0f0f0;
+    font-size: 1.15rem;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+
+    &:hover {
+        background: #e0e0e0;
+        transform: translateY(-2px);
+    }
+}
+
+.container_experience { margin-top: $indent30; }
+
+.container_experience_description { display: flex; flex-direction: column; gap: 8px; }
 
 .title_experience {
-    font-size: $title_expitriens;
-    font-weight: bold;
-    margin-top: PageStyle.$indent30;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-top: $indent30;
+    line-height: 1.3;
 }
 
 .cointainer_dates_work {
     display: flex;
-    gap: 6px;
-
-    color: #BFBFBF;
-    font-size: $date_expitriens;
-    font-weight: bold;
+    gap: 8px;
+    color: #aaa;
+    font-size: 1.15rem;
+    font-weight: 600;
 }
 
 .experience_description {
-    font-size: $date_expitriens;
+    font-size: 1.15rem;
     text-align: justify;
-}
+    line-height: 1.7;
+    color: #444;
 
-.experience_description > div:nth-child(n + 1) {
-    margin-bottom: PageStyle.$indent30;
-}
-
-.container_experience {
-    margin-top: PageStyle.$indent30;
+    > div + div { margin-top: $indent30; }
 }
 
 .startBetween {
     display: none;
+    text-align: center;
+
+    img { width: 50%; margin: 0 0 -85px; }
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.1rem;
+    color: #444;
+    letter-spacing: 0.04em;
+
+    img {
+        width: 28px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s, transform 0.2s;
+
+        &:hover { opacity: 1; transform: scale(1.1); }
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .container { padding: 140px 100px 100px; }
+}
+
+@media only screen and (max-width: 1000px) {
+    .container { padding: 120px 48px 80px; }
 }
 
 @media only screen and (max-width: 600px) {
-    .cointainer_dates_work {
-        display: flex;
-        gap: 6px;
-        color: #BFBFBF;
-        font-size: 100%;
-        font-weight: bold;
-    }
+    .container {
+        padding: 100px 18px 60px;
 
-    h1 b {
-        display: none;
+        h1 b { display: none; }
     }
 
     .container_stack {
-        display: flex;
-        margin: 0 auto;
+        transform: rotate(355deg);
         width: 100%;
-        transform: rotate(0);
     }
 
-    .container_experience {
-        margin-top: PageStyle.$indent100;
+    .point_stack {
+        font-size: 0.85rem;
+        padding: 5px 14px;
     }
 
-    .title_experience {
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 2.4%;
-    }
+    .title_experience { font-size: 1.1rem; }
 
-    .experience_description {
-        display: none;
-    }
+    .experience_description { display: none; }
 
-    .startBetween img {
-        width: 50%;
-        margin: 0 0 -85px 0;
-    }
+    .cointainer_dates_work { font-size: 0.85rem; }
 
-    .startBetween {
-        display: block;
-        text-align: center;
-    }
+    .container_experience { margin-top: $indent100; }
 
-    .container_myFace img {
-        width: 50%;
-    }
+    .container_myFace img { width: 55%; }
+
+    .startBetween { display: block; }
+
+    footer { height: 44px; font-size: 0.85rem; img { width: 22px; } }
 }
