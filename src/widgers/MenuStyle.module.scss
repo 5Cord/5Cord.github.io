@@ -1,13 +1,3 @@
-@keyframes menuSlideIn {
-    from { opacity: 0; transform: translateX(40px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pointFade {
-    from { opacity: 0; transform: translateX(20px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
 .MainMenu {
     position: fixed;
     top: 0;
@@ -31,15 +21,6 @@
         pointer-events: auto;
         opacity: 1;
         transform: translateX(0);
-        animation: menuSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
-
-        .MainMenu_point {
-            animation: pointFade 0.3s ease both;
-
-            @for $i from 1 through 6 {
-                &:nth-child(#{$i}) { animation-delay: #{$i * 0.05}s; }
-            }
-        }
     }
 }
 

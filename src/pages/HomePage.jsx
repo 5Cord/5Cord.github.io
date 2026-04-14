@@ -31,6 +31,7 @@ function HomePage() {
     const [error, setError] = useState(null);
     const [showStackProjects, setShowStackProjects] = useState({});
     const [isEnd, setIsEnd] = useState(false);
+    const [isBeginning, setIsBeginning] = useState(true);
 
     useEffect(() => {
         fetchData();
@@ -48,14 +49,25 @@ function HomePage() {
         }
     };
 
+    const updateSlideState = (swiper) => {
+        setIsEnd(swiper.isEnd);
+        setIsBeginning(swiper.isBeginning);
+    };
+
     const handleCaseClick = () => {
-        changePage(swiperRef.current, 'next', setCountPage);
-        setIsEnd(swiperRef.current.isEnd);  // Проверяем, достигли ли конца
+        const swiper = swiperRef.current;
+        if (!swiper) return;
+        if (swiper.isEnd) {
+            swiper.slideTo(0);
+        } else {
+            swiper.slideNext();
+        }
     };
 
     const handleCaseClickPrev = () => {
-        changePage(swiperRef.current, 'prev', setCountPage);
-        setIsEnd(swiperRef.current.isEnd);  // Проверяем, достигли ли конца
+        const swiper = swiperRef.current;
+        if (!swiper) return;
+        swiper.slidePrev();
     };
 
     return (
@@ -74,9 +86,9 @@ function HomePage() {
                         slidesPerView={1}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
-                            setIsEnd(swiper.isEnd);  // Устанавливаем начальное значение
+                            updateSlideState(swiper);
                         }}
-                        onSlideChange={() => setIsEnd(swiperRef.current.isEnd)}  // Обновляем состояние на изменение слайда
+                        onSlideChange={(swiper) => updateSlideState(swiper)}  // Обновляем состояние на изменение слайда
                         className={cl.fullPageSwiper_mobile}
                         noSwiping={true}
                         noSwipingClass={cl.noSwipe}
@@ -103,7 +115,11 @@ function HomePage() {
                                                 <img src={item.miniI} alt="little_img" className={cl.white_icon} />
                                                 <div className={cl.cont_block_text}>
                                                     <div className={cl.block_text}>{item.title}</div>
-                                                    <div className={cl.block_stack}>{item.stack}</div>
+                                                    <div className={cl.block_stack}>
+                                                        {item.stack.split(', ').map((tech, i) => (
+                                                            <span key={i} className={cl.block_stack_tag}>{tech}</span>
+                                                        ))}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </Link>
@@ -118,9 +134,9 @@ function HomePage() {
                         slidesPerView={1}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
-                            setIsEnd(swiper.isEnd);  // Устанавливаем начальное значение
+                            updateSlideState(swiper);
                         }}
-                        onSlideChange={() => setIsEnd(swiperRef.current.isEnd)}  // Обновляем состояние на изменение слайда
+                        onSlideChange={(swiper) => updateSlideState(swiper)}  // Обновляем состояние на изменение слайда
                         className={cl.fullPageSwiper}
                         mousewheel={true}
                     >
@@ -142,7 +158,7 @@ function HomePage() {
                                                 onMouseEnter={() => setShowStackProjects((prev) => ({ ...prev, [index]: true }))}
                                                 onMouseLeave={() => setShowStackProjects((prev) => ({ ...prev, [index]: false }))}
                                             >
-                                                View Project
+                                                Подробнее
                                                 <img src={item.miniI} alt="" />
                                             </button>
                                         </Link>
@@ -158,18 +174,15 @@ function HomePage() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    {!isEnd && (  // Показываем кнопку только если это не конец
-                        <div className={cl.arrowCase} onClick={handleCaseClick}>
-                            <div className={cl.case_text}>Кейсы</div>
-                            <img src={Arrow} className={cl.case_arrow} alt="Arrow" />
-                        </div>
-                    )}
-                    {countPage ? (
+<div className={cl.arrowCase} onClick={handleCaseClick}>
+                        <img src={Arrow} className={cl.case_arrow} alt="Arrow" />
+                        {isBeginning && <span className={cl.case_label}>Проекты</span>}
+                    </div>
+                    {!isBeginning && (
                         <div className={cl.arrowCasePrev} onClick={handleCaseClickPrev}>
                             <img src={Arrow} className={cl.case_arrowPrev} alt="Arrow" />
-                            <div className={cl.case_text}>Назад</div>
                         </div>
-                    ) : null}
+                    )}
                 </>
             )}
         </>

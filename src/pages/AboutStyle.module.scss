@@ -62,12 +62,20 @@ $indent100: 7.7%;
     background: #f0f0f0;
     font-size: 1.15rem;
     border-radius: 2px;
-    transition: background 0.2s, transform 0.15s;
+    transition: filter 0.2s, transform 0.15s;
 
     &:hover {
-        background: #e0e0e0;
+        filter: brightness(0.93);
         transform: translateY(-2px);
     }
+
+    &_yellow { background: #fff3cc; } // JS, TS
+    &_blue   { background: #dbeafe; } // React, Redux, Zustand
+    &_green  { background: #d1fae5; } // Node.js, npm, Vite
+    &_purple { background: #ede9fe; } // REST API, WebSockets, MongoDB, SQL
+    &_orange { background: #ffedd5; } // Git
+    &_pink   { background: #fde8e8; } // HTML, SCSS, BEM, Figma
+    &_gray   { background: #e5e7eb; } // PHP, Linux
 }
 
 .container_experience { margin-top: $indent30; }

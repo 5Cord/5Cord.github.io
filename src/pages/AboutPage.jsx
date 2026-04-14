@@ -13,15 +13,25 @@ function About() {
                 <div className={cl.container_tecnology}>
                     <h1>Стэк технологий</h1>
                     <div className={cl.container_stack}>
-                        <div className={cl.point_stack}>HTML</div>
-                        <div className={cl.point_stack}>SCSS</div>
-                        <div className={cl.point_stack}>Vite</div>
-                        <div className={cl.point_stack}>BEM</div>
-                        <div className={cl.point_stack}>MySQL</div>
-                        <div className={cl.point_stack}>JS</div>
-                        <div className={cl.point_stack}>React</div>
-                        <div className={cl.point_stack}>Node js</div>
-                        <div className={cl.point_stack}>PHP</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_pink}`}>HTML</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_pink}`}>SCSS</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_pink}`}>BEM</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_pink}`}>Figma</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_yellow}`}>JavaScript</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_yellow}`}>TypeScript</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_blue}`}>React</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_blue}`}>Redux</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_blue}`}>Zustand</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_green}`}>Vite</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_green}`}>Node.js</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_green}`}>npm</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_orange}`}>Git</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_purple}`}>REST API</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_purple}`}>WebSockets</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_purple}`}>MongoDB</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_purple}`}>SQL</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_gray}`}>PHP</div>
+                        <div className={`${cl.point_stack} ${cl.point_stack_gray}`}>Linux</div>
                     </div>
                 </div>
                 <div className={cl.container_experience}>
