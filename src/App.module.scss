@@ -378,7 +378,7 @@ body {
     }
 
     .noSwipe {
-        pointer-events: none;
+        touch-action: pan-y;
     }
 
     .cont_block_text {

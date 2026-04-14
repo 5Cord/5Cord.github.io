@@ -102,7 +102,7 @@ function HomePage() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <div className={`${cl.contrainer_center} ${cl.contrainer_center_title}`}>
-                                <div className={cl.container_block}>
+                                <div className={`${cl.container_block} ${cl.noSwipe}`}>
                                     {titles.map((item, index) => (
                                         <Link key={index} to={`/page/${item.id}`} className={cl.link}>
                                             <div className={cl.block} style={{
