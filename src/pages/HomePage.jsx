@@ -152,6 +152,11 @@ function HomePage() {
                                     <div className={`${cl.contrainer_center_up} ${cl.contrainer_center_text}`}>
                                         {item.title}
                                     </div>
+                                    {item.type && (
+                                        <div className={cl.project_type_badge}>
+                                            {{ pet: 'Пет-проект', test: 'Тестовое задание', real: 'Реальная задача' }[item.type]}
+                                        </div>
+                                    )}
                                     <div className={`${cl.button_viewProject} ${cl.contrainer_center_text}`}>
                                         <Link to={`/page/${item.id}`}>
                                             <button

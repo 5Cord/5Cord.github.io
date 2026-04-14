@@ -4,7 +4,7 @@ import {
     Box, Button, Dialog, DialogActions, DialogContent, DialogTitle,
     IconButton, Paper, Table, TableBody, TableCell, TableContainer,
     TableHead, TableRow, TextField, Typography, CircularProgress,
-    Snackbar, Alert, Chip
+    Snackbar, Alert, Chip, MenuItem
 } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -14,9 +14,16 @@ import LogoutIcon from '@mui/icons-material/Logout';
 const API = `${import.meta.env.VITE_API_URL}/project`;
 const ADMIN_PASSWORD = 'admin5cord';
 
+const PROJECT_TYPES = [
+    { value: 'pet', label: 'Пет-проект' },
+    { value: 'test', label: 'Тестовое задание' },
+    { value: 'real', label: 'Реальная задача' },
+];
+
 const emptyForm = {
     title: '',
     descriptrion: '',
+    type: '',
     link: '',
     linkPhone: '',
     fullI: '',
@@ -85,6 +92,7 @@ export function AdminPage() {
         setForm({
             title: project.title || '',
             descriptrion: project.descriptrion || '',
+            type: project.type || '',
             link: project.link || '',
             linkPhone: project.linkPhone || '',
             fullI: project.fullI || '',
@@ -138,6 +146,8 @@ export function AdminPage() {
         { key: 'pcImg', label: 'Скриншот ПК (URL)' },
         { key: 'stack', label: 'Стек (через запятую)' },
     ];
+
+    const typeLabel = PROJECT_TYPES.find(t => t.value === form.type)?.label;
 
     if (!authed) {
         return (
@@ -277,6 +287,22 @@ export function AdminPage() {
                             inputProps={{ style: { fontFamily: 'Montserrat, sans-serif' } }}
                         />
                     ))}
+                    <TextField
+                        select
+                        label="Тип проекта"
+                        value={form.type}
+                        onChange={(e) => setForm((prev) => ({ ...prev, type: e.target.value }))}
+                        size="small"
+                        InputLabelProps={{ style: { fontFamily: 'Montserrat, sans-serif' } }}
+                        inputProps={{ style: { fontFamily: 'Montserrat, sans-serif' } }}
+                    >
+                        <MenuItem value=""><em>Не указан</em></MenuItem>
+                        {PROJECT_TYPES.map(({ value, label }) => (
+                            <MenuItem key={value} value={value} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                                {label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                 </DialogContent>
                 <DialogActions sx={{ px: 3, pb: 2 }}>
                     <Button onClick={() => setDialogOpen(false)} sx={{ fontFamily: 'Montserrat, sans-serif', color: '#555' }}>
