@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import iconT from '../image/iconT.png';
 import iconG from '../image/iconG.png';
 import Shadow from '../image/shadow.svg';
+import Arrow from '../image/Arrow.svg';
 import cl from './PageStyle.module.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function Page() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState(null);
     const [stackData, setStackData] = useState([]);
 
@@ -29,6 +31,10 @@ function Page() {
 
     return (
         <>
+            <button className={cl.backButton} onClick={() => navigate('/')}>
+                <img src={Arrow} className={cl.backArrow} alt="Назад" />
+                <span>Проекты</span>
+            </button>
             <div className={cl.container}>
                 <h1>{product.title}</h1>
 

@@ -52,6 +52,12 @@ function HomePage() {
     const updateSlideState = (swiper) => {
         setIsEnd(swiper.isEnd);
         setIsBeginning(swiper.isBeginning);
+        sessionStorage.setItem('homeSlide', swiper.activeIndex);
+    };
+
+    const restoreSlide = (swiper) => {
+        const saved = sessionStorage.getItem('homeSlide');
+        if (saved && parseInt(saved) > 0) swiper.slideTo(parseInt(saved), 0);
     };
 
     const handleCaseClick = () => {
@@ -87,8 +93,9 @@ function HomePage() {
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
                             updateSlideState(swiper);
+                            restoreSlide(swiper);
                         }}
-                        onSlideChange={(swiper) => updateSlideState(swiper)}  // Обновляем состояние на изменение слайда
+                        onSlideChange={(swiper) => updateSlideState(swiper)}
                         className={cl.fullPageSwiper_mobile}
                         noSwiping={true}
                         noSwipingClass={cl.noSwipe}
@@ -135,8 +142,9 @@ function HomePage() {
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
                             updateSlideState(swiper);
+                            restoreSlide(swiper);
                         }}
-                        onSlideChange={(swiper) => updateSlideState(swiper)}  // Обновляем состояние на изменение слайда
+                        onSlideChange={(swiper) => updateSlideState(swiper)}
                         className={cl.fullPageSwiper}
                         mousewheel={true}
                     >

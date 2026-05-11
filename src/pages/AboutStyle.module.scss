@@ -82,6 +82,28 @@ $indent100: 7.7%;
 
 .container_experience_description { display: flex; flex-direction: column; gap: 8px; }
 
+.experience_stack {
+    font-size: 0.9rem;
+    color: #aaa;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+.container_education { margin-top: $indent100; }
+
+.education_item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: $indent30;
+}
+
+.education_spec {
+    font-size: 1.05rem;
+    color: #666;
+    margin: 0;
+}
+
 .title_experience {
     font-size: 1.7rem;
     font-weight: 700;
@@ -163,6 +185,10 @@ footer {
     .title_experience { font-size: 1.1rem; }
 
     .experience_description { display: none; }
+
+    .experience_stack { display: none; }
+
+    .education_spec { font-size: 0.85rem; }
 
     .cointainer_dates_work { font-size: 0.85rem; }
 

@@ -3,11 +3,17 @@ import iconG from '../image/iconG.png';
 import MyFaceBig from '../image/MyFacePhone.png';
 import cl from './Contact.module.scss';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Contact() {
     const [form, setForm] = useState({ nameUser: '', emailUser: '', messageUser: '' });
     const [status, setStatus] = useState(null);
+
+    useEffect(() => {
+        if (status !== 'success') return;
+        const timer = setTimeout(() => setStatus(null), 5000);
+        return () => clearTimeout(timer);
+    }, [status]);
 
     const handleChange = (e) => {
         setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -17,7 +23,7 @@ function Contact() {
         e.preventDefault();
         setStatus(null);
         try {
-            await axios.post(`${import.meta.env.VITE_API_URL}/feedback`, form);
+            await axios.post(`${import.meta.env.VITE_API_URL}/feedback`, { ...form, sentAt: new Date().toISOString() });
             setStatus('success');
             setForm({ nameUser: '', emailUser: '', messageUser: '' });
         } catch (error) {
@@ -28,6 +34,11 @@ function Contact() {
 
     return (
         <>
+            {status === 'success' && (
+                <div className={cl.toast_success}>
+                    Сообщение отправлено — свяжусь с вами в ближайшее время ✓
+                </div>
+            )}
             <div className={cl.container}>
                 <h1>Контакты</h1>
                 <div className={cl.container_myFace}>
@@ -62,9 +73,6 @@ function Contact() {
                                 required
                             />
                             <button type="submit">Отправить</button>
-                            {status === 'success' && (
-                                <span className={cl.msg_success}>Сообщение отправлено ✓</span>
-                            )}
                             {status && status !== 'success' && (
                                 <span className={cl.msg_error}>Ошибка: {status}</span>
                             )}

@@ -88,6 +88,37 @@
 .msg_success { color: #2e7d32; }
 .msg_error   { color: #c62828; }
 
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.toast_success {
+    position: fixed;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    z-index: 999;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 2px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    animation: toastIn 0.35s ease both;
+    pointer-events: none;
+
+    @media only screen and (max-width: 640px) {
+        white-space: normal;
+        text-align: center;
+        width: calc(100% - 36px);
+        font-size: 0.9rem;
+    }
+}
+
 @media only screen and (max-width: 640px) {
     .block_form {
         width: 100%;

@@ -22,6 +22,7 @@ function App() {
   const fast   = useMouseParallax(0.07);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (location.pathname !== '/') {
       document.documentElement.style.overflow = 'scroll';
       document.documentElement.style.overflowX = 'hidden';
